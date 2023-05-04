@@ -226,12 +226,12 @@ codeunit 51002 TakeOrder_LabelManagement
         insertLabel(TempPowerAppsLabels, SummaryScreen_OrderUpdatedMessage, SummaryScreen_OrderUpdatedMessage_ValueTxt, languageFilter);
     end;
 
-    local procedure InsertLabel(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; LabelName: Text[100]; LabelText: Text[250]; labelLanguage: Text[10])
+    local procedure InsertLabel(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; LabelName: Text[100]; LabelText: Text[250]; LabelLanguage: Text[10])
     begin
         // Inserts the given key-value pair into the temp table.
         TempPowerAppsLabels."Label ID" := LabelName;
         TempPowerAppsLabels."Text Value" := LabelText;
-        tempPowerAppsLabels."Language Code" := labelLanguage;
+        tempPowerAppsLabels."Language Code" := LabelLanguage;
         TempPowerAppsLabels.Insert();
     end;
 }
