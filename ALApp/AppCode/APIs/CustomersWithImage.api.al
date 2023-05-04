@@ -1,7 +1,7 @@
 page 51003 TakeOrder_CustomersWithImage
 {
     PageType = API;
-    Caption = 'Customers with image';
+    Caption = 'Customers with Image';
     EntityName = 'CustomerWithImage';
     EntitySetName = 'CustomersWithImage';
 
@@ -23,9 +23,9 @@ page 51003 TakeOrder_CustomersWithImage
                 {
                     Caption = 'System ID';
                 }
-                field(displayName; Rec.Name)
+                field(DisplayName; Rec.Name)
                 {
-                    Caption = 'DisplayName';
+                    Caption = 'Display Name';
                 }
 
                 field(number; Rec."No.")
@@ -54,7 +54,7 @@ page 51003 TakeOrder_CustomersWithImage
                 }
                 field(IsTable; Rec.IsTable)
                 {
-                    Caption = 'IsTable';
+                    Caption = 'Is Table';
                 }
             }
         }

@@ -145,79 +145,85 @@ codeunit 51002 TakeOrder_LabelManagement
         // Telemetry labels
         LabelsGeneratedTelemetryTxt: Label 'Retrieving Power Apps labels for language "%1" (system language is "%2").', Locked = true;
 
-    procedure GetLabelsForUserLanguage(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; languageFilter: Text)
+    procedure GetLabelsForLanguage(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; LanguageFilter: Text)
     var
-        DotNetCultureInfo: Codeunit DotNet_CultureInfo;
-        LanguageChanged: Boolean;
         PreviousLanguage: Integer;
         LanguageCodeId: Integer;
     begin
+        LanguageCodeId := LanguageCodeToLanguageLcid(LanguageFilter);
+        PreviousLanguage := GlobalLanguage();
+        GlobalLanguage(LanguageCodeId);
 
-        // DotNetCultureInfo.GetCultureInfoByName(languageFilter);
-        // Call function that does not exist to get the language code ID
+        GetReportLabels(TempPowerAppsLabels, LanguageFilter);
 
-        // Temp code - see comment above about language code ID
-        if languageFilter = 'da-dk' then begin
-            PreviousLanguage := GlobalLanguage();
-            LanguageCodeId := 1030;
-            GlobalLanguage(LanguageCodeId);
-            LanguageChanged := true;
-        end;
-
-        GetReportLabels(TempPowerAppsLabels);
-        OnAfterGeneratePowerAppsLabels(TempPowerAppsLabels);
-
-        if LanguageChanged then
-            GlobalLanguage(PreviousLanguage);
+        GlobalLanguage(PreviousLanguage);
     end;
 
-    procedure GetReportLabels(var TempPowerAppsLabels: Record TakeOrder_Labels temporary)
+    procedure LanguageCodeToLanguageLcid(LanguageCode: Text[10]): Integer
+    var
+        DotNetCultureInfo: Codeunit DotNet_CultureInfo;
+        PreviousLanguage: Integer;
+        LanguageCodeId: Integer;
+    begin
+        // This should use a function like this, which does not exist:
+        //     DotNetCultureInfo.GetCultureInfoByName(languageFilter);
+
+        // So instead we use a workaround:
+        case LanguageCode of
+            'da-dk':
+                exit(1030);
+            else
+                exit(1033);
+        end;
+    end;
+
+    procedure GetReportLabels(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; var languageFilter: Text[10])
     begin
 
-        InsertLabel(TempPowerAppsLabels, LoadingMessage, LoadingMessage_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, Subtract, SubTract_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, AddText, AddText_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, FirstAdd, FirstAdd_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, GallerySelect, GallerySelect_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, DismissQuantityControl, DismissQuantityControl_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, ItemImageText, ItemImageText_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, StartScreen_TakeOrder, StartScreen_TakeOrder_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, StartScreen_User, StartScreen_User_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, StartScreen_InfoScreen, StartScreen_InfoScreen_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, InfoScreen_Title, InfoScreen_Title_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, InfoScreen_Text, InfoScreen_Text_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, InfoScreen_ReadMore, InfoScreen_ReadMore_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, InfoScreen_Link, InfoScreen_Link_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, InfoScreen_Close, InfoScreen_Close_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, InfoScreen_LinkToolTip, InfoScreen_LinkToolTip_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Title, SelectTableScreen_Title_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Free, SelectTableScreen_Free_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Occupied, SelectTableScreen_Occupied_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Update, SelectTableScreen_Update_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SelectTableScreen_GalleryToolTip, SelectTableScreen_GalleryToolTip_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_FullMenu, TakeOrderScreen_FullMenu_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Items, TakeOrderScreen_Items_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Totals, TakeOrderScreen_Totals_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Review, TakeOrderScreen_Review_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Close, TakeOrderScreen_Close_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Delete, TakeOrderScreen_Delete_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_FilterGallery, TakeOrderScreen_FilterGallery_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_ItemGallery, TakeOrderScreen_ItemGallery_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_Delete, SummaryScreen_Delete_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_Back, SummaryScreen_Back_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_Submit, SummaryScreen_Submit_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_AddMore, SummaryScreen_AddMore_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_CheckOut, SummaryScreen_CheckOut_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_Total, SummaryScreen_Total_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_DeleteMessage, SummaryScreen_DeleteMessage_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_CheckOutMessage, SummaryScreen_CheckOutMessage_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_Gallery, SummaryScreen_Gallery_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryStateExpanded, SummaryScreen_SummaryStateExpanded_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryStateCollapsed, SummaryScreen_SummaryStateCollapsed_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryDraftTitle, SummaryScreen_SummaryDraftTitle_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummarySubmittedTitle, SummaryScreen_SummarySubmittedTitle_ValueTxt, 'en-US');
-        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryAddTo, SummaryScreen_SummaryAddTo_ValueTxt, 'en-US');
-        insertLabel(TempPowerAppsLabels, SummaryScreen_OrderUpdatedMessage, SummaryScreen_OrderUpdatedMessage_ValueTxt, 'en-US');
+        InsertLabel(TempPowerAppsLabels, LoadingMessage, LoadingMessage_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, Subtract, SubTract_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, AddText, AddText_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, FirstAdd, FirstAdd_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, GallerySelect, GallerySelect_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, DismissQuantityControl, DismissQuantityControl_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, ItemImageText, ItemImageText_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, StartScreen_TakeOrder, StartScreen_TakeOrder_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, StartScreen_User, StartScreen_User_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, StartScreen_InfoScreen, StartScreen_InfoScreen_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, InfoScreen_Title, InfoScreen_Title_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, InfoScreen_Text, InfoScreen_Text_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, InfoScreen_ReadMore, InfoScreen_ReadMore_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, InfoScreen_Link, InfoScreen_Link_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, InfoScreen_Close, InfoScreen_Close_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, InfoScreen_LinkToolTip, InfoScreen_LinkToolTip_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Title, SelectTableScreen_Title_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Free, SelectTableScreen_Free_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Occupied, SelectTableScreen_Occupied_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SelectTableScreen_Update, SelectTableScreen_Update_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SelectTableScreen_GalleryToolTip, SelectTableScreen_GalleryToolTip_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_FullMenu, TakeOrderScreen_FullMenu_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Items, TakeOrderScreen_Items_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Totals, TakeOrderScreen_Totals_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Review, TakeOrderScreen_Review_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Close, TakeOrderScreen_Close_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_Delete, TakeOrderScreen_Delete_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_FilterGallery, TakeOrderScreen_FilterGallery_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, TakeOrderScreen_ItemGallery, TakeOrderScreen_ItemGallery_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_Delete, SummaryScreen_Delete_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_Back, SummaryScreen_Back_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_Submit, SummaryScreen_Submit_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_AddMore, SummaryScreen_AddMore_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_CheckOut, SummaryScreen_CheckOut_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_Total, SummaryScreen_Total_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_DeleteMessage, SummaryScreen_DeleteMessage_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_CheckOutMessage, SummaryScreen_CheckOutMessage_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_Gallery, SummaryScreen_Gallery_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryStateExpanded, SummaryScreen_SummaryStateExpanded_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryStateCollapsed, SummaryScreen_SummaryStateCollapsed_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryDraftTitle, SummaryScreen_SummaryDraftTitle_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummarySubmittedTitle, SummaryScreen_SummarySubmittedTitle_ValueTxt, languageFilter);
+        InsertLabel(TempPowerAppsLabels, SummaryScreen_SummaryAddTo, SummaryScreen_SummaryAddTo_ValueTxt, languageFilter);
+        insertLabel(TempPowerAppsLabels, SummaryScreen_OrderUpdatedMessage, SummaryScreen_OrderUpdatedMessage_ValueTxt, languageFilter);
     end;
 
     local procedure InsertLabel(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; LabelName: Text[100]; LabelText: Text[250]; labelLanguage: Text[10])
@@ -227,11 +233,6 @@ codeunit 51002 TakeOrder_LabelManagement
         TempPowerAppsLabels."Text Value" := LabelText;
         tempPowerAppsLabels."Language Code" := labelLanguage;
         TempPowerAppsLabels.Insert();
-    end;
-
-    [IntegrationEvent(false, false)]
-    procedure OnAfterGeneratePowerAppsLabels(var PowerBIReportLabels: Record TakeOrder_Labels temporary)
-    begin
     end;
 }
 

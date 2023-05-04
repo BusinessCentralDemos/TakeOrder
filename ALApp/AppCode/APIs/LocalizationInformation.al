@@ -1,4 +1,4 @@
-page 51007 TakeOrder_LocalizationInfo
+page 51007 TakeOrder_LocaleInformation
 {
     PageType = API;
     Caption = 'Business Central Localization information for PowerApps';
@@ -23,16 +23,16 @@ page 51007 TakeOrder_LocalizationInfo
                 {
                     Caption = 'System ID';
                 }
-                field(displayName; Rec.Name)
+                field(DisplayName; Rec.Name)
                 {
-                    Caption = 'DisplayName';
+                    Caption = 'Display Name';
                 }
 
                 field(countryRegionCode; Rec."Country/Region Code")
                 {
                     Caption = 'Country/Region Code';
                 }
-                field(powerAppLocale; 'en-US')
+                field(powerAppLocale; 'en-us')
                 {
                     caption = 'PowerApp Locale';
                 }

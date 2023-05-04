@@ -25,7 +25,7 @@ page 51004 TakeOrder_LanguageResources
                 {
                     Caption = 'Label Id';
                 }
-                field(displayName; Rec."Text Value")
+                field(DisplayName; Rec."Text Value")
                 {
                     Caption = 'Text Value';
                 }
@@ -47,6 +47,6 @@ page 51004 TakeOrder_LanguageResources
         LanguageFilter: Text;
     begin
         LanguageFilter := Rec.GetFilter("Language Code");
-        PowerAppsLabelMgt.GetLabelsForUserLanguage(Rec, UserSecurityId());
+        PowerAppsLabelMgt.GetLabelsForLanguage(Rec, UserSecurityId());
     end;
 }

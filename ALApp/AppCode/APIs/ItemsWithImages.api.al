@@ -27,9 +27,9 @@ page 51001 TakeOrder_ItemWithImage
                 {
                     Caption = 'Number';
                 }
-                field(displayName; Rec.Description)
+                field(DisplayName; Rec.Description)
                 {
-                    Caption = 'DisplayName';
+                    Caption = 'Display Name';
                 }
                 field("unitPrice"; Rec."Unit Price")
                 {
