@@ -10,7 +10,7 @@
   <GalleryItemId xsi:nil="true"></GalleryItemId>
   <BackgroundColor>rgba(97, 91, 76, 1)</BackgroundColor>
   <DisplayName>Take Order</DisplayName>
-  <Description>Business Central sample Canvas app that showcase what a frontline worker app can look like</Description>
+  <Description>Take Order is a simple sample app that shows how to build a high fidelity canvas Power App using Business Central data.</Description>
   <CommitMessage xsi:nil="true"></CommitMessage>
   <Publisher></Publisher>
   <AuthorizationReferences>[]</AuthorizationReferences>
