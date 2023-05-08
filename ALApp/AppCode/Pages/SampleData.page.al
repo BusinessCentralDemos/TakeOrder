@@ -3,7 +3,7 @@ page 69000 TakeOrder_SamplePage
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'PowerApps Sample data';
+    Caption = 'Take Order sample data';
 
     layout
     {
@@ -19,7 +19,7 @@ page 69000 TakeOrder_SamplePage
             }
             group(GroupName2)
             {
-                Caption = 'Sample Items';
+                Caption = 'Menu Items';
 
                 part(PowerAppItems; TakeOrder_ItemListPart)
                 {
