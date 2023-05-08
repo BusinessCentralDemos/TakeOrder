@@ -40,9 +40,9 @@ page 69000 TakeOrder_SamplePage
                 Caption = 'Generate sample Data';
                 trigger OnAction()
                 var
-                    myCodeUnit: Codeunit TakeOrder_SampleDataGenerator;
+                    sampleDataGenerator: Codeunit TakeOrder_SampleDataGenerator;
                 begin
-                    myCodeUnit.GenerateDemoDataForPowerApps();
+                    sampleDataGenerator.GenerateDemoDataForPowerApps();
                 end;
             }
             action(DeleteTestData)
@@ -52,9 +52,9 @@ page 69000 TakeOrder_SamplePage
                 Caption = 'Delete sample Data';
                 trigger OnAction()
                 var
-                    myCodeUnit: Codeunit TakeOrder_SampleDataGenerator;
+                    sampleDataGenerator: Codeunit TakeOrder_SampleDataGenerator;
                 begin
-                    myCodeUnit.DeleteDemoDataForPowerApps();
+                    sampleDataGenerator.DeleteDemoDataForPowerApps();
                 end;
             }
         }

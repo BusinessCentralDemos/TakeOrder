@@ -33,7 +33,7 @@ page 69001 TakeOrder_ItemWithImage
                 }
                 field("unitPrice"; Rec."Unit Price")
                 {
-                    Caption = 'Unit price';
+                    Caption = 'Unit Price';
                 }
                 field(baseUnitOfMeasureCode; Rec."Base Unit of Measure")
                 {

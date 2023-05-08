@@ -12,7 +12,6 @@ codeunit 69001 TakeOrder_SampleDataGenerator
         // Delete all added tables (customers)
         cutsomerRecord.SetRange(IsTable, true);
         cutsomerRecord.DeleteAll(true);
-        // Note: We are leaving the item catagories since they don't disturb much
     end;
 
     procedure GenerateDemoDataForPowerApps()
@@ -77,95 +76,92 @@ codeunit 69001 TakeOrder_SampleDataGenerator
 
     procedure AddItem(ItemNumber: Text; ItemName: Text; itemCategory: Text; allergenInformation: Text; longDescription: Text; unitPrice: Decimal; itemPicture: Text)
     var
-        itemRecord: Record Item;
-        inventoryGroup: Record "Inventory Posting Group";
-        itemUnitOfMeasure: Record "Item Unit of Measure";
-        genProdPostingGroup: Record "Gen. Product Posting Group";
-        taxGroupCode: Record "Tax Group";
+        ItemRecord: Record Item;
+        InventoryGroup: Record "Inventory Posting Group";
+        ItemUnitOfMeasure: Record "Item Unit of Measure";
+        GenProdPostingGroup: Record "Gen. Product Posting Group";
+        TaxGroupCode: Record "Tax Group";
     begin
-
-
-        // Note we can change these to be specific things if we want to 
-        inventoryGroup.FindFirst();
-        taxGroupCode.FindFirst();
-        genProdPostingGroup.Get('RETAIL');
+        InventoryGroup.FindFirst();
+        TaxGroupCode.FindFirst();
+        GenProdPostingGroup.Get('RETAIL');
 
         // Set up the item
-        itemRecord.Init();
-        itemRecord.Validate("No.", ItemNumber);
-        itemRecord.Validate(Description, ItemName);
-        itemRecord.Validate("Unit Price", unitPrice);
-        itemRecord.Validate("Item Category Code", itemCategory);
-        itemRecord.Validate(LongItemDescription, longDescription);
-        itemRecord.Validate(AllergenInformation, allergenInformation);
-        itemRecord.Validate("Inventory Posting Group", inventoryGroup.Code);
-        itemRecord.Validate("Gen. Prod. Posting Group", genProdPostingGroup.Code);
-        itemRecord.Validate("Tax Group Code", taxGroupCode.Code);
-        itemRecord.Validate(SoldInRestaurant, true);
+        ItemRecord.Init();
+        ItemRecord.Validate("No.", ItemNumber);
+        ItemRecord.Validate(Description, ItemName);
+        ItemRecord.Validate("Unit Price", unitPrice);
+        ItemRecord.Validate("Item Category Code", itemCategory);
+        ItemRecord.Validate(LongItemDescription, longDescription);
+        ItemRecord.Validate(AllergenInformation, allergenInformation);
+        ItemRecord.Validate("Inventory Posting Group", InventoryGroup.Code);
+        ItemRecord.Validate("Gen. Prod. Posting Group", GenProdPostingGroup.Code);
+        ItemRecord.Validate("Tax Group Code", TaxGroupCode.Code);
+        ItemRecord.Validate(SoldInRestaurant, true);
 
-        // itemRecord.Validate("Base Unit of Measure", 'PCS');
+        itemRecord.Validate("Base Unit of Measure", 'PCS');
 
-        addImageToItem(itemPicture, itemRecord);
+        addImageToItem(itemPicture, ItemRecord);
 
         // Save the item
-        itemRecord.Insert(true);
+        ItemRecord.Insert(true);
 
     end;
 
     procedure AddCustomer(customerName: Text)
     var
-        customerRecord: Record Customer;
-        customerPostingGroup: Record "Customer Posting Group";
-        paymentTerms: Record "Payment Terms";
-        genBusPostingGroup: Record "Gen. Business Posting Group";
-        taxAreaCode: Record "Tax Area";
+        CustomerRecord: Record Customer;
+        CustomerPostingGroup: Record "Customer Posting Group";
+        PaymentTerms: Record "Payment Terms";
+        GenBusPostingGroup: Record "Gen. Business Posting Group";
+        TaxAreaCode: Record "Tax Area";
     begin
-        customerPostingGroup.FindFirst();
-        taxAreaCode.FindFirst();
-        genBusPostingGroup.FindFirst();
-        paymentTerms.Get('COD');
+        CustomerPostingGroup.FindFirst();
+        TaxAreaCode.FindFirst();
+        GenBusPostingGroup.FindFirst();
+        PaymentTerms.Get('COD');
 
-        customerRecord.Init();
-        customerRecord.Validate(Name, customerName);
-        customerRecord.Validate(IsTable, true);
-        customerRecord.Validate("Customer Posting Group", customerPostingGroup.Code);
-        customerRecord.Validate("Payment Terms Code", paymentTerms.Code);
-        customerRecord.Validate("Gen. Bus. Posting Group", genBusPostingGroup.Code);
-        customerRecord.Validate("Tax Area Code", taxAreaCode.Code);
-        customerRecord.Insert(true);
+        CustomerRecord.Init();
+        CustomerRecord.Validate(Name, customerName);
+        CustomerRecord.Validate(IsTable, true);
+        CustomerRecord.Validate("Customer Posting Group", CustomerPostingGroup.Code);
+        CustomerRecord.Validate("Payment Terms Code", PaymentTerms.Code);
+        CustomerRecord.Validate("Gen. Bus. Posting Group", GenBusPostingGroup.Code);
+        CustomerRecord.Validate("Tax Area Code", TaxAreaCode.Code);
+        CustomerRecord.Insert(true);
     end;
 
     procedure AddItemCatagories(description: Text; code: Text)
     var
-        itemCatagory: Record "Item Category";
+        ItemCategory: Record "Item Category";
     begin
-        if itemCatagory.Get(code) then
+        if ItemCategory.Get(code) then
             exit;
 
-        itemCatagory.Init();
-        itemCatagory.Validate(description, description);
-        itemCatagory.Validate(Code, code);
-        itemCatagory.Insert(true);
+        ItemCategory.Init();
+        ItemCategory.Validate(description, description);
+        ItemCategory.Validate(Code, code);
+        ItemCategory.Insert(true);
     end;
 
     procedure AddItemUnitOfMeasure(itemNumber: Text)
     var
-        itemUnitOfMeasure: Record "Item Unit of Measure";
-        itemRecord: Record Item;
+        ItemUnitOfMeasure: Record "Item Unit of Measure";
+        ItemRecord: Record Item;
     begin
-        itemUnitOfMeasure.SetRange("Item No.", itemNumber);
-        itemUnitOfMeasure.SetRange(Code, 'PCS');
-        if itemUnitOfMeasure.FindFirst() then
+        ItemUnitOfMeasure.SetRange("Item No.", itemNumber);
+        ItemUnitOfMeasure.SetRange(Code, 'PCS');
+        if ItemUnitOfMeasure.FindFirst() then
             exit;
 
-        itemUnitOfMeasure.Init();
-        itemUnitOfMeasure.Validate("Item No.", itemNumber);
-        itemUnitOfMeasure.Validate(Code, 'PCS');
-        itemUnitOfMeasure.Insert(true);
+        ItemUnitOfMeasure.Init();
+        ItemUnitOfMeasure.Validate("Item No.", itemNumber);
+        ItemUnitOfMeasure.Validate(Code, 'PCS');
+        ItemUnitOfMeasure.Insert(true);
 
-        itemRecord.Get(itemNumber);
-        itemRecord.validate("Base Unit of Measure", 'PCS');
-        itemRecord.Modify(true);
+        ItemRecord.Get(itemNumber);
+        ItemRecord.validate("Base Unit of Measure", 'PCS');
+        ItemRecord.Modify(true);
     end;
 
     procedure addImageToItem(Base64Img: Text; var itemRecord: Record Item)
@@ -178,15 +174,5 @@ codeunit 69001 TakeOrder_SampleDataGenerator
         Outstr := TempBlob.CreateOutStream();
         Base64Convert.FromBase64(Base64Img, Outstr);
         itemRecord.Picture.ImportStream(TempBlob.CreateInStream(), 'Image demo data for Item');
-    end;
-
-    procedure UpdateItemWithGTIN(itemNumber: Text; gtin: Text)
-    var
-        itemRecord: Record Item;
-    begin
-        if itemRecord.Get(itemNumber) then begin
-            itemRecord.Validate(GTIN, gtin);
-            itemRecord.Modify(true);
-        end;
     end;
 }

@@ -47,7 +47,7 @@ page 69003 TakeOrder_Tables
 
                 field(itemImageText; Rec.Image)
                 {
-                    Caption = 'Picture reference';
+                    Caption = 'Picture Reference';
                 }
                 field(IsTable; Rec.IsTable)
                 {
