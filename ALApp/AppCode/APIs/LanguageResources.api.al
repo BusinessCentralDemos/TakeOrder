@@ -43,10 +43,10 @@ page 69004 TakeOrder_LanguageResources
 
     trigger OnOpenPage()
     var
-        PowerAppsLabelMgt: Codeunit TakeOrder_LabelManagement;
+        LabelManagement: Codeunit TakeOrder_LabelManagement;
         LanguageFilter: Text;
     begin
         LanguageFilter := Rec.GetFilter("Language Code");
-        PowerAppsLabelMgt.GetLabelsForLanguage(Rec, LanguageFilter);
+        LabelManagement.GetLabelsForLanguage(Rec, LanguageFilter);
     end;
 }
