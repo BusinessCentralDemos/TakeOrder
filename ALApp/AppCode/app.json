@@ -1,10 +1,10 @@
 {
   "id": "a1f81352-6244-48a4-96a0-a81c5aaaa581",
-  "name": "TakeOrderSample",
+  "name": "Take Order Sample",
   "publisher": "BusinessCentral",
   "version": "1.0.0.0",
-  "brief": "",
-  "description": "",
+  "brief": "Take Order - you restaurant helper",
+  "description": "Take Order is a simple sample app that shows how to build a high fidelity canvas Power App using Business Central data.",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
