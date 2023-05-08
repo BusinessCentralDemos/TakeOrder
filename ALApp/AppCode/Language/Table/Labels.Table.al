@@ -1,4 +1,4 @@
-table 51000 TakeOrder_Labels
+table 69000 TakeOrder_Labels
 {
     Caption = 'Sample Apps labels';
     DataClassification = SystemMetadata;

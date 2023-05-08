@@ -1,4 +1,4 @@
-page 51004 TakeOrder_LanguageResources
+page 69004 TakeOrder_LanguageResources
 {
     PageType = API;
     Caption = 'Take Order Language Resources';

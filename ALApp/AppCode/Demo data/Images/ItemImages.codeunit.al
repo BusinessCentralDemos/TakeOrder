@@ -1,4 +1,4 @@
-codeunit 51004 TakeOrder_ItemImages
+codeunit 69004 TakeOrder_ItemImages
 {
     procedure P0001_Croissant(): Text
     begin

@@ -1,4 +1,4 @@
-codeunit 51001 TakeOrder_SampleDataGenerator
+codeunit 69001 TakeOrder_SampleDataGenerator
 {
     procedure DeleteDemoDataForPowerApps()
     var

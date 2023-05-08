@@ -1,4 +1,4 @@
-page 51007 TakeOrder_LocaleInformation
+page 69007 TakeOrder_LocaleInformation
 {
     PageType = API;
     Caption = 'Business Central Localization information for PowerApps';

@@ -1,4 +1,4 @@
-page 51003 TakeOrder_CustomersWithImage
+page 69003 TakeOrder_CustomersWithImage
 {
     PageType = API;
     Caption = 'Customers with Image';

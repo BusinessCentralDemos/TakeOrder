@@ -1,4 +1,4 @@
-page 51000 TakeOrder_SamplePage
+page 69000 TakeOrder_SamplePage
 {
     PageType = Card;
     ApplicationArea = All;

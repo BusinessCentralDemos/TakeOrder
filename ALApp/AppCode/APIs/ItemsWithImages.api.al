@@ -1,4 +1,4 @@
-page 51001 TakeOrder_ItemWithImage
+page 69001 TakeOrder_ItemWithImage
 {
     PageType = API;
     Caption = 'Item with image';

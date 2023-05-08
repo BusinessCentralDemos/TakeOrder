@@ -1,4 +1,4 @@
-codeunit 51002 TakeOrder_LabelManagement
+codeunit 69002 TakeOrder_LabelManagement
 {
     // // Codeunit for generating the static values that Power BI reports use for titles or other
     // // text labels. These values are exposed through a web service for page 6318. This approach
