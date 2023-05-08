@@ -188,7 +188,7 @@
             Concurrent(
                 Set(varUserName,User().FullName),
                 Set(varBcCompany,First('localizationInformations (microsoft/powerApps/beta)')),
-                Set(varTables, Filter('customersWithImage (microsoft/powerApps/beta)', IsTable)),
+                Set(varTables, Filter('tables (microsoft/powerApps/beta)', IsTable)),
                 Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
             );
             

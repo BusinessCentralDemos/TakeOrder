@@ -50,9 +50,6 @@
     "datasets": {
       "PowerApps,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f": {
         "dataSources": {
-          "customersWithImage (microsoft/powerApps/beta)": {
-            "tableName": "customersWithImage,microsoft%252FpowerApps%252Fbeta"
-          },
           "itemsWithImage (microsoft/powerApps/beta)": {
             "tableName": "itemsWithImage,microsoft%252FpowerApps%252Fbeta"
           },
@@ -65,6 +62,9 @@
           "salesOrders (v2.0)": {
             "tableName": "salesOrders,v2.0"
           },
+          "tables (microsoft/powerApps/beta)": {
+            "tableName": "tables,microsoft%252FpowerApps%252Fbeta"
+          },
           "takeOrderLanguageResources (microsoft/powerApps/beta)": {
             "tableName": "takeOrderLanguageResources,microsoft%252FpowerApps%252Fbeta"
           }
@@ -72,12 +72,12 @@
       }
     },
     "dataSources": [
-      "customersWithImage (microsoft/powerApps/beta)",
       "itemsWithImage (microsoft/powerApps/beta)",
       "salesOrders (v2.0)",
       "salesOrderLines (v2.0)",
       "localizationInformations (microsoft/powerApps/beta)",
-      "takeOrderLanguageResources (microsoft/powerApps/beta)"
+      "takeOrderLanguageResources (microsoft/powerApps/beta)",
+      "tables (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
     "dependents": [
