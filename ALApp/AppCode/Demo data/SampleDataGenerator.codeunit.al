@@ -25,7 +25,6 @@ codeunit 69001 TakeOrder_SampleDataGenerator
         itemRecord: Record Item;
         itemImageCodeUnit: Codeunit TakeOrder_ItemImages;
     begin
-        // Add tables
         AddCustomer('Table 1');
         AddCustomer('Table 2');
         AddCustomer('Table 3');
@@ -33,12 +32,10 @@ codeunit 69001 TakeOrder_SampleDataGenerator
         AddCustomer('Table 5');
         AddCustomer('Table 6');
 
-        // Add item catagories
         AddItemCatagories('Warm drinks', 'warmDrinks');
         AddItemCatagories('Cold drinks', 'coldDrinks');
         AddItemCatagories('Food', 'food');
 
-        // Add items
         AddItem('W0001', 'Caffè', 'warmDrinks', '', 'Hawaii dark roast has scents of cedar and roasted hazelnuts with flavors of chocolate, toasted nuts, and a tangy strawberry finish.', 2.00, itemImageCodeUnit.W0001_Caffe());
         AddItem('W0002', 'Caffè Doppio', 'warmDrinks', '', 'Brazil medium roast: chocolate, honey, caramel notes, and a deep finish. Low-acidity for a smoother cup.', 3.00, itemImageCodeUnit.W0002_CaffeDoppio());
         Additem('W0003', 'Americano', 'warmDrinks', '', 'This organic light roast from Costa Rica offers a nutty taste profile balanced with hints of caramel and vanilla.', 2.00, itemImageCodeUnit.W0003_Americano());
@@ -86,7 +83,6 @@ codeunit 69001 TakeOrder_SampleDataGenerator
         TaxGroupCode.FindFirst();
         GenProdPostingGroup.Get('RETAIL');
 
-        // Set up the item
         ItemRecord.Init();
         ItemRecord.Validate("No.", ItemNumber);
         ItemRecord.Validate(Description, ItemName);
@@ -98,14 +94,11 @@ codeunit 69001 TakeOrder_SampleDataGenerator
         ItemRecord.Validate("Gen. Prod. Posting Group", GenProdPostingGroup.Code);
         ItemRecord.Validate("Tax Group Code", TaxGroupCode.Code);
         ItemRecord.Validate(SoldInRestaurant, true);
-
         itemRecord.Validate("Base Unit of Measure", 'PCS');
 
         addImageToItem(itemPicture, ItemRecord);
 
-        // Save the item
         ItemRecord.Insert(true);
-
     end;
 
     procedure AddCustomer(customerName: Text)
