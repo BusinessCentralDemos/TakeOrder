@@ -187,7 +187,7 @@
                 PaddingTop: =0
                 Size: =21
                 Text: |
-                    =Text(ThisItem.'Unit price', varCurrencyFormat, varBcLocale)
+                    =Text(ThisItem.'Unit Price', varCurrencyFormat, varBcLocale)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =300
                 X: =124

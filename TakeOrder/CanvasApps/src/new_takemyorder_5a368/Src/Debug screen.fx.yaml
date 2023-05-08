@@ -17,22 +17,18 @@
         X: =Parent.Width/2 - Self.Width/2
         ZIndex: =3
 
-    Button1 As button:
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+    Label1 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(100, 118, 132, 1)
-        FontWeight: =FontWeight.Semibold
-        Height: =70
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
-        OnSelect: =Set(varLanguageResources, Filter('takeOrderLanguageResources (microsoft/powerApps/beta)', 'Language Code' = "en-us"))
-        Size: =24
-        Text: ="Button"
-        Width: =280
-        X: =179
-        Y: =237
-        ZIndex: =4
+        Height: =644
+        Size: =21
+        Text: =varLabels.AddText
+        VerticalAlign: =VerticalAlign.Top
+        Width: =560
+        X: =25
+        Y: =410
+        ZIndex: =5
 
     Label1 As label:
         BorderColor: =RGBA(32, 54, 71, 1)

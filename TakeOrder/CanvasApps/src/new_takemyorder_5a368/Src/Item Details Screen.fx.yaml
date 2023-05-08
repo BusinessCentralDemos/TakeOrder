@@ -90,7 +90,7 @@
                 Font: =varTheme.font
                 Height: =70
                 Size: =24
-                Text: =Text(ctxItemDetails.'Unit price', varCurrencyFormat, varBcLocale)
+                Text: =Text(ctxItemDetails.'Unit Price', varCurrencyFormat, varBcLocale)
                 Width: =177
                 X: =40
                 Y: =50

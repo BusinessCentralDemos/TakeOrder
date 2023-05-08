@@ -53,8 +53,11 @@
           "itemsWithImage (microsoft/powerApps/beta)": {
             "tableName": "itemsWithImage,microsoft%252FpowerApps%252Fbeta"
           },
-          "localizationInformations (microsoft/powerApps/beta)": {
-            "tableName": "localizationInformations,microsoft%252FpowerApps%252Fbeta"
+          "languageResources (microsoft/powerApps/beta)": {
+            "tableName": "languageResources,microsoft%252FpowerApps%252Fbeta"
+          },
+          "localeInformations (microsoft/powerApps/beta)": {
+            "tableName": "localeInformations,microsoft%252FpowerApps%252Fbeta"
           },
           "salesOrderLines (v2.0)": {
             "tableName": "salesOrderLines,v2.0"
@@ -64,9 +67,6 @@
           },
           "tables (microsoft/powerApps/beta)": {
             "tableName": "tables,microsoft%252FpowerApps%252Fbeta"
-          },
-          "takeOrderLanguageResources (microsoft/powerApps/beta)": {
-            "tableName": "takeOrderLanguageResources,microsoft%252FpowerApps%252Fbeta"
           }
         }
       }
@@ -75,9 +75,9 @@
       "itemsWithImage (microsoft/powerApps/beta)",
       "salesOrders (v2.0)",
       "salesOrderLines (v2.0)",
-      "localizationInformations (microsoft/powerApps/beta)",
-      "takeOrderLanguageResources (microsoft/powerApps/beta)",
-      "tables (microsoft/powerApps/beta)"
+      "tables (microsoft/powerApps/beta)",
+      "languageResources (microsoft/powerApps/beta)",
+      "localeInformations (microsoft/powerApps/beta)"
     ],
     "dependencies": {},
     "dependents": [

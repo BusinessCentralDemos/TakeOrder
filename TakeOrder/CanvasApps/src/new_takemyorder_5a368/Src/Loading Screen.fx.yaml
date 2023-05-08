@@ -135,64 +135,64 @@
         OnSelect: |-
             =// Get localized labels from Bc
             // Note: AL logic to parse language parameter fails
-            Set(varLanguageResources, Filter('takeOrderLanguageResources (microsoft/powerApps/beta)', 'Language Code' = "en-us"));
+            Set(varLanguageResources, Filter('languageResources (microsoft/powerApps/beta)', languageCode = "en-us"));
             Set(varLabels, {
-                Subtract: LookUp(varLanguageResources, labelId = "Subtract").'Text Value',
-                LoadingMessage: LookUp(varLanguageResources, labelId = "LoadingMessage").'Text Value',
-                AddText: LookUp(varLanguageResources, labelId = "AddText").'Text Value',
-                FirstAdd: LookUp(varLanguageResources, labelId = "FirstAdd").'Text Value',
-                DismissQuantityControl: LookUp(varLanguageResources, labelId = "DismissQuantityControl").'Text Value',    
-                GallerySelect: LookUp(varLanguageResources, labelId = "GallerySelect").'Text Value',
-                ItemImageText: LookUp(varLanguageResources, labelId = "ItemImageText").'Text Value',    
-                StartScreen_TakeOrder: LookUp(varLanguageResources, labelId = "StartScreen_TakeOrder").'Text Value',
-                StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").'Text Value',
-                StartScreen_InfoScreen: LookUp(varLanguageResources, labelId = "StartScreen_InfoScreen").'Text Value',    
-                InfoScreen_Title: LookUp(varLanguageResources, labelId = "InfoScreen_Title").'Text Value',    
-                InfoScreen_Text: LookUp(varLanguageResources, labelId = "InfoScreen_Text").'Text Value', 
-                InfoScreen_ReadMore: LookUp(varLanguageResources, labelId = "InfoScreen_ReadMore").'Text Value',        
-                InfoScreen_Link: LookUp(varLanguageResources, labelId = "InfoScreen_Link").'Text Value',                   
-                InfoScreen_Close: LookUp(varLanguageResources, labelId = "InfoScreen_Close").'Text Value',        
-                InfoScreen_LinkToolTip: LookUp(varLanguageResources, labelId = "InfoScreen_LinkToolTip").'Text Value',        
-                SelectTableScreen_Title: LookUp(varLanguageResources, labelId = "SelectTableScreen_Title").'Text Value',            
-                SelectTableScreen_Free: LookUp(varLanguageResources, labelId = "SelectTableScreen_Free").'Text Value',            
-                SelectTableScreen_Occupied: LookUp(varLanguageResources, labelId = "SelectTableScreen_Occupied").'Text Value',            
-                SelectTableScreen_Update: LookUp(varLanguageResources, labelId = "SelectTableScreen_Update").'Text Value',           
-                SelectTableScreen_GalleryToolTip: LookUp(varLanguageResources, labelId = "SelectTableScreen_GalleryToolTip").'Text Value',                
-                TakeOrderScreen_FullMenu: LookUp(varLanguageResources, labelId = "TakeOrderScreen_FullMenu").'Text Value',                
-                TakeOrderScreen_Items: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Items").'Text Value',                
-                TakeOrderScreen_Totals: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Totals").'Text Value',                
-                TakeOrderScreen_Review: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Review").'Text Value',    
-                TakeOrderScreen_Close: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Close").'Text Value',                
-                TakeOrderScreen_ItemGallery: LookUp(varLanguageResources, labelId = "TakeOrderScreen_ItemGallery").'Text Value',                
-                TakeOrderScreen_FilterGallery: LookUp(varLanguageResources, labelId = "TakeOrderScreen_FilterGallery").'Text Value',                
-                TakeOrderScreen_Delete: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Delete").'Text Value',                
-                SummaryScreen_Delete: LookUp(varLanguageResources, labelId = "SummaryScreen_Delete").'Text Value',               
-                SummaryScreen_Back: LookUp(varLanguageResources, labelId = "SummaryScreen_Back").'Text Value',                 
-                SummaryScreen_Submit: LookUp(varLanguageResources, labelId = "SummaryScreen_Submit").'Text Value',                 
-                SummaryScreen_AddMore: LookUp(varLanguageResources, labelId = "SummaryScreen_AddMore").'Text Value',                 
-                SummaryScreen_CheckOut: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOut").'Text Value',                 
-                SummaryScreen_Total: LookUp(varLanguageResources, labelId = "SummaryScreen_Total").'Text Value',                 
-                SummaryScreen_DeleteMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_DeleteMessage").'Text Value',                 
-                SummaryScreen_Gallery: LookUp(varLanguageResources, labelId = "SummaryScreen_Gallery").'Text Value',                 
-                SummaryScreen_SummaryStateCollapsed: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateCollapsed").'Text Value',                 
-                SummaryScreen_SummaryStateExpanded: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateExpanded").'Text Value',                 
-                SummaryScreen_CheckOutMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOutMessage").'Text Value',
-                SummaryScreen_SummaryDraftTitle: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryDraftTitle").'Text Value',
-                SummaryScreen_SummarySubmittedTitle: LookUp(varLanguageResources, labelId = "SummaryScreen_SummarySubmittedTitle").'Text Value',
-                SummaryScreen_SummaryAddTo: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryAddTo").'Text Value',
-                SummaryScreen_OrderUpdatedMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_OrderUpdatedMessage").'Text Value'    
+                Subtract: LookUp(varLanguageResources, labelId = "Subtract").DisplayName,
+                LoadingMessage: LookUp(varLanguageResources, labelId = "LoadingMessage").DisplayName,
+                AddText: LookUp(varLanguageResources, labelId = "AddText").DisplayName,
+                FirstAdd: LookUp(varLanguageResources, labelId = "FirstAdd").DisplayName,
+                DismissQuantityControl: LookUp(varLanguageResources, labelId = "DismissQuantityControl").DisplayName,    
+                GallerySelect: LookUp(varLanguageResources, labelId = "GallerySelect").DisplayName,
+                ItemImageText: LookUp(varLanguageResources, labelId = "ItemImageText").DisplayName,    
+                StartScreen_TakeOrder: LookUp(varLanguageResources, labelId = "StartScreen_TakeOrder").DisplayName,
+                StartScreen_User: LookUp(varLanguageResources, labelId = "StartScreen_User").DisplayName,
+                StartScreen_InfoScreen: LookUp(varLanguageResources, labelId = "StartScreen_InfoScreen").DisplayName,    
+                InfoScreen_Title: LookUp(varLanguageResources, labelId = "InfoScreen_Title").DisplayName,    
+                InfoScreen_Text: LookUp(varLanguageResources, labelId = "InfoScreen_Text").DisplayName, 
+                InfoScreen_ReadMore: LookUp(varLanguageResources, labelId = "InfoScreen_ReadMore").DisplayName,        
+                InfoScreen_Link: LookUp(varLanguageResources, labelId = "InfoScreen_Link").DisplayName,                   
+                InfoScreen_Close: LookUp(varLanguageResources, labelId = "InfoScreen_Close").DisplayName,        
+                InfoScreen_LinkToolTip: LookUp(varLanguageResources, labelId = "InfoScreen_LinkToolTip").DisplayName,        
+                SelectTableScreen_Title: LookUp(varLanguageResources, labelId = "SelectTableScreen_Title").DisplayName,            
+                SelectTableScreen_Free: LookUp(varLanguageResources, labelId = "SelectTableScreen_Free").DisplayName,            
+                SelectTableScreen_Occupied: LookUp(varLanguageResources, labelId = "SelectTableScreen_Occupied").DisplayName,            
+                SelectTableScreen_Update: LookUp(varLanguageResources, labelId = "SelectTableScreen_Update").DisplayName,           
+                SelectTableScreen_GalleryToolTip: LookUp(varLanguageResources, labelId = "SelectTableScreen_GalleryToolTip").DisplayName,                
+                TakeOrderScreen_FullMenu: LookUp(varLanguageResources, labelId = "TakeOrderScreen_FullMenu").DisplayName,                
+                TakeOrderScreen_Items: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Items").DisplayName,                
+                TakeOrderScreen_Totals: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Totals").DisplayName,                
+                TakeOrderScreen_Review: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Review").DisplayName,    
+                TakeOrderScreen_Close: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Close").DisplayName,                
+                TakeOrderScreen_ItemGallery: LookUp(varLanguageResources, labelId = "TakeOrderScreen_ItemGallery").DisplayName,                
+                TakeOrderScreen_FilterGallery: LookUp(varLanguageResources, labelId = "TakeOrderScreen_FilterGallery").DisplayName,                
+                TakeOrderScreen_Delete: LookUp(varLanguageResources, labelId = "TakeOrderScreen_Delete").DisplayName,                
+                SummaryScreen_Delete: LookUp(varLanguageResources, labelId = "SummaryScreen_Delete").DisplayName,               
+                SummaryScreen_Back: LookUp(varLanguageResources, labelId = "SummaryScreen_Back").DisplayName,                 
+                SummaryScreen_Submit: LookUp(varLanguageResources, labelId = "SummaryScreen_Submit").DisplayName,                 
+                SummaryScreen_AddMore: LookUp(varLanguageResources, labelId = "SummaryScreen_AddMore").DisplayName,                 
+                SummaryScreen_CheckOut: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOut").DisplayName,                 
+                SummaryScreen_Total: LookUp(varLanguageResources, labelId = "SummaryScreen_Total").DisplayName,                 
+                SummaryScreen_DeleteMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_DeleteMessage").DisplayName,                 
+                SummaryScreen_Gallery: LookUp(varLanguageResources, labelId = "SummaryScreen_Gallery").DisplayName,                 
+                SummaryScreen_SummaryStateCollapsed: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateCollapsed").DisplayName,                 
+                SummaryScreen_SummaryStateExpanded: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryStateExpanded").DisplayName,                 
+                SummaryScreen_CheckOutMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_CheckOutMessage").DisplayName,
+                SummaryScreen_SummaryDraftTitle: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryDraftTitle").DisplayName,
+                SummaryScreen_SummarySubmittedTitle: LookUp(varLanguageResources, labelId = "SummaryScreen_SummarySubmittedTitle").DisplayName,
+                SummaryScreen_SummaryAddTo: LookUp(varLanguageResources, labelId = "SummaryScreen_SummaryAddTo").DisplayName,
+                SummaryScreen_OrderUpdatedMessage: LookUp(varLanguageResources, labelId = "SummaryScreen_OrderUpdatedMessage").DisplayName    
             });
             
             // Set up data
             ClearCollect(colItemGroup, varLabels.TakeOrderScreen_FullMenu);
             Concurrent(
                 Set(varUserName,User().FullName),
-                Set(varBcCompany,First('localizationInformations (microsoft/powerApps/beta)')),
+                Set(varBcCompany,First('localeInformations (microsoft/powerApps/beta)')),
                 Set(varTables, Filter('tables (microsoft/powerApps/beta)', IsTable)),
                 Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
             );
             
-            Set(varCompanyName,varBcCompany.'Display Name');
+            Set(varCompanyName,varBcCompany.DisplayName);
             Set(varBcLocale, varBcCompany.powerAppLocale);
             
             // Note: when this format is used with locale, the currentcy sign is localized by the platform
