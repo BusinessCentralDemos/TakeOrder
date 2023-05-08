@@ -13,7 +13,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "d2969b09-5d18-4625-892d-43f1669bfcf5"
+          "value": "57af4c73-d386-4372-92c7-d637cd9a3e16"
         }
       },
       "parameterHintsV2": {
@@ -24,7 +24,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "d2969b09-5d18-4625-892d-43f1669bfcf5"
+          "value": "57af4c73-d386-4372-92c7-d637cd9a3e16"
         }
       }
     },
@@ -48,7 +48,7 @@
       "parameterHintsV2": {}
     },
     "datasets": {
-      "Sandbox,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f": {
+      "PowerApps,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f": {
         "dataSources": {
           "customersWithImage (microsoft/powerApps/beta)": {
             "tableName": "customersWithImage,microsoft%252FpowerApps%252Fbeta"
