@@ -65,7 +65,7 @@
                         },
                             Collect(colTempTableStatus, {
                                 id: table.id,
-                                displayName: table.displayName,
+                                displayName: table.DisplayName,
                                 free: IsBlank(salesOrderForTable),
                                 orderNumber: salesOrderForTable.number,
                                 customerId: salesOrderForTable.customerId    

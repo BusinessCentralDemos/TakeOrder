@@ -148,7 +148,7 @@
                             colSelectedItems,
                             {
                                 id: ctxSelectedItem.id,
-                                name: ctxSelectedItem.displayName,
+                                name: ctxSelectedItem.DisplayName,
                                 price: ctxSelectedItem.unitPrice,
                                 group: ctxSelectedItem.itemCategoryName,
                                 quantity: 1,
