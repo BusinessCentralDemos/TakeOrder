@@ -7,11 +7,11 @@
       "RevisionNumber": 3
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "displayName": "Text Value",
+      "DisplayName": "Text Value",
       "labelId": "Label Id",
       "languageCode": "Language Code"
     },
-    "DatasetName": "SANDBOX,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f",
+    "DatasetName": "PowerApps,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
