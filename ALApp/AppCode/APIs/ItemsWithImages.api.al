@@ -68,7 +68,7 @@ page 69001 TakeOrder_ItemWithImage
                 {
                     Caption = 'Item Category Code';
                 }
-                field(picture; pictureBlobPlaceholder."Value BLOB")
+                field(picture; tempPictureBlobStorage."Value BLOB")
                 {
                     Caption = 'Picture';
                 }
@@ -88,7 +88,7 @@ page 69001 TakeOrder_ItemWithImage
 
     var
         ItemCategoryName: Text[100];
-        pictureBlobPlaceholder: Record "Name/Value Buffer" temporary; // The temporary record is used to load the picture
+        tempPictureBlobStorage: Record "Name/Value Buffer" temporary; // The temporary record is used to load the picture
         PictureHeight: Integer;
         PictureWidth: Integer;
 
@@ -102,9 +102,9 @@ page 69001 TakeOrder_ItemWithImage
         FieldR: FieldRef;
         ItemCategory: Record "Item Category";
     begin
-        pictureBlobPlaceholder.DeleteAll();
-        pictureBlobPlaceholder.Init();
-        pictureBlobPlaceholder."Value BLOB".CreateOutStream(OutStr);
+        tempPictureBlobStorage.DeleteAll();
+        tempPictureBlobStorage.Init();
+        tempPictureBlobStorage."Value BLOB".CreateOutStream(OutStr);
 
         // If the picture is of type Media, use this code:
         // Rec.Picture.Image.ExportStream(OutStr);
@@ -125,7 +125,7 @@ page 69001 TakeOrder_ItemWithImage
             PictureHeight := TenantMedia.Height;
         end;
 
-        pictureBlobPlaceholder.Insert();
+        tempPictureBlobStorage.Insert();
 
         ItemCategoryName := '';
         if Rec."Item Category Code" <> '' then begin
