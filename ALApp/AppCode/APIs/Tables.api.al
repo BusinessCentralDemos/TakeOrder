@@ -1,9 +1,9 @@
-page 69003 TakeOrder_CustomersWithImage
+page 69003 TakeOrder_Tables
 {
     PageType = API;
-    Caption = 'Customers with Image';
-    EntityName = 'CustomerWithImage';
-    EntitySetName = 'CustomersWithImage';
+    Caption = 'Tables';
+    EntityName = 'Table';
+    EntitySetName = 'Tables';
 
     APIPublisher = 'microsoft';
     APIGroup = 'powerApps';
@@ -44,10 +44,7 @@ page 69003 TakeOrder_CustomersWithImage
                 {
                     Caption = 'Phone';
                 }
-                field(picture; NameValueBufferBlob."Value BLOB")
-                {
-                    Caption = 'Picture';
-                }
+
                 field(itemImageText; Rec.Image)
                 {
                     Caption = 'Picture reference';
@@ -59,26 +56,4 @@ page 69003 TakeOrder_CustomersWithImage
             }
         }
     }
-
-    var
-        NameValueBufferBlob: Record "Name/Value Buffer" temporary; // This can be any table with a field of type Blob
-        ConfigMediaBuffer: Record "Config. Media Buffer" temporary; // This can be any table with a field of type Media
-
-    trigger OnAfterGetRecord()
-    var
-        TenantMedia: Record "Tenant Media";
-        OutStr: OutStream;
-        InStr: InStream;
-        MediaId: Guid;
-        RecordR: RecordRef;
-        FieldR: FieldRef;
-    begin
-        NameValueBufferBlob.DeleteAll();
-        NameValueBufferBlob.Init();
-        NameValueBufferBlob."Value BLOB".CreateOutStream(OutStr);
-
-        // **BEGIN**
-        Rec.Image.ExportStream(OutStr);
-        NameValueBufferBlob.Insert();
-    end;
 }
