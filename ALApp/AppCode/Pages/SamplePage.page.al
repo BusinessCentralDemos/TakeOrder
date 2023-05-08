@@ -9,7 +9,7 @@ page 69000 TakeOrder_SamplePage
     {
         area(Content)
         {
-            group(GroupName)
+            group(Tables)
             {
                 Caption = 'Sample Tables';
                 part(PowerAppCustomers; TakeOrder_CustomerListPart)
@@ -17,7 +17,7 @@ page 69000 TakeOrder_SamplePage
                     Caption = 'Customers';
                 }
             }
-            group(GroupName2)
+            group(Items)
             {
                 Caption = 'Menu Items';
 
