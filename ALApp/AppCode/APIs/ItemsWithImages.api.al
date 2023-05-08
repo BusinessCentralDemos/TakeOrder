@@ -41,7 +41,7 @@ page 69001 TakeOrder_ItemWithImage
                 }
                 field(itemImageText; Rec.Picture)
                 {
-                    Caption = 'Picture reference';
+                    Caption = 'Picture Reference';
                 }
                 field(GTIN; Rec.GTIN)
                 {
@@ -68,7 +68,7 @@ page 69001 TakeOrder_ItemWithImage
                 {
                     Caption = 'Item Category Code';
                 }
-                field(picture; NameValueBufferBlob."Value BLOB")
+                field(picture; pictureBlobPlaceholder."Value BLOB")
                 {
                     Caption = 'Picture';
                 }
@@ -88,8 +88,7 @@ page 69001 TakeOrder_ItemWithImage
 
     var
         ItemCatagoryName: Text[100];
-        NameValueBufferBlob: Record "Name/Value Buffer" temporary; // This can be any table with a field of type Blob
-        ConfigMediaBuffer: Record "Config. Media Buffer" temporary; // This can be any table with a field of type Media
+        pictureBlobPlaceholder: Record "Name/Value Buffer" temporary; // The temporary record is used to load the picture
         PictureHeight: Integer;
         PictureWidth: Integer;
 
@@ -101,23 +100,20 @@ page 69001 TakeOrder_ItemWithImage
         MediaId: Guid;
         RecordR: RecordRef;
         FieldR: FieldRef;
-        //Anders test
         ItemCategory: Record "Item Category";
     begin
-        NameValueBufferBlob.DeleteAll();
-        NameValueBufferBlob.Init();
-        NameValueBufferBlob."Value BLOB".CreateOutStream(OutStr);
+        pictureBlobPlaceholder.DeleteAll();
+        pictureBlobPlaceholder.Init();
+        pictureBlobPlaceholder."Value BLOB".CreateOutStream(OutStr);
 
-        // **BEGIN**
         // If the picture is of type Media, use this code:
         // Rec.Picture.Image.ExportStream(OutStr);
 
         // If the picture is of type MediaSet, use this code:
         if Rec.Picture.Count > 0 then begin
-            // There are more than 1 pictures for this item. We take the first one.
+            // If there are more than 1 pictures for this item. We take the first one.
             MediaId := Rec.Picture.Item(1);
 
-            // This is ugly but there is no platform support
             TenantMedia.SetAutoCalcFields(Content);
             if not TenantMedia.Get(MediaID) then
                 exit;
@@ -125,14 +121,12 @@ page 69001 TakeOrder_ItemWithImage
             TenantMedia.Content.CreateInStream(InStr);
             CopyStream(OutStr, InStr);
 
-            // Get the picture dimensions
             PictureWidth := TenantMedia.Width;
             PictureHeight := TenantMedia.Height;
         end;
 
-        NameValueBufferBlob.Insert();
+        pictureBlobPlaceholder.Insert();
 
-        //Set Item Category Name
         ItemCatagoryName := '';
         if Rec."Item Category Code" <> '' then begin
             if ItemCategory.Get(Rec."Item Category Code")
