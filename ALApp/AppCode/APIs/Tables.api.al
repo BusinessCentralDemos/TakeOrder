@@ -27,7 +27,6 @@ page 69003 TakeOrder_Tables
                 {
                     Caption = 'Display Name';
                 }
-
                 field(number; Rec."No.")
                 {
                     Caption = 'No.';
@@ -44,7 +43,6 @@ page 69003 TakeOrder_Tables
                 {
                     Caption = 'Phone';
                 }
-
                 field(itemImageText; Rec.Image)
                 {
                     Caption = 'Picture Reference';

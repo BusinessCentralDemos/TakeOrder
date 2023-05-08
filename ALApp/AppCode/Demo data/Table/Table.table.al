@@ -1,4 +1,4 @@
-tableextension 69000 TakeOrder_Customer extends Customer
+tableextension 69000 TakeOrder_Table extends Customer
 {
     fields
     {

@@ -2,8 +2,8 @@ page 69004 TakeOrder_LanguageResources
 {
     PageType = API;
     Caption = 'Take Order Language Resources';
-    EntityName = 'takeOrderLanguageResource';
-    EntitySetName = 'takeOrderLanguageResources';
+    EntityName = 'LanguageResource';
+    EntitySetName = 'LanguageResources';
     APIPublisher = 'microsoft';
     APIGroup = 'powerApps';
     APIVersion = 'beta';
