@@ -139,10 +139,6 @@ codeunit 69002 TakeOrder_LabelManagement
         SummaryScreen_OrderUpdatedMessage: Label 'SummaryScreen_OrderUpdatedMessage', Locked = true;
         SummaryScreen_OrderUpdatedMessage_ValueTxt: Label 'Order updated for ';
 
-
-        // Telemetry labels
-        LabelsGeneratedTelemetryTxt: Label 'Retrieving Power Apps labels for language "%1" (system language is "%2").', Locked = true;
-
     procedure GetLabelsForLanguage(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; LanguageFilter: Text)
     var
         PreviousLanguage: Integer;
