@@ -47,6 +47,6 @@ page 69004 TakeOrder_LanguageResources
         LanguageFilter: Text;
     begin
         LanguageFilter := Rec.GetFilter("Language Code");
-        PowerAppsLabelMgt.GetLabelsForLanguage(Rec, UserSecurityId());
+        PowerAppsLabelMgt.GetLabelsForLanguage(Rec, LanguageFilter);
     end;
 }

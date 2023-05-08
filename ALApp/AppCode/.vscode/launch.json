@@ -13,6 +13,7 @@
             "launchBrowser": false,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
+            "forceUpgrade": true,
             "schemaUpdateMode": "ForceSync"
         }
     ]
