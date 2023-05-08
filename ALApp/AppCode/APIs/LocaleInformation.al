@@ -2,8 +2,8 @@ page 69007 TakeOrder_LocaleInformation
 {
     PageType = API;
     Caption = 'Business Central Localization information for PowerApps';
-    EntityName = 'localizationInformation';
-    EntitySetName = 'localizationInformations';
+    EntityName = 'LocaleInformation';
+    EntitySetName = 'LocaleInformations';
 
     APIPublisher = 'microsoft';
     APIGroup = 'powerApps';
@@ -27,7 +27,6 @@ page 69007 TakeOrder_LocaleInformation
                 {
                     Caption = 'Display Name';
                 }
-
                 field(countryRegionCode; Rec."Country/Region Code")
                 {
                     Caption = 'Country/Region Code';

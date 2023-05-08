@@ -165,10 +165,10 @@ codeunit 69002 TakeOrder_LabelManagement
         PreviousLanguage: Integer;
         LanguageCodeId: Integer;
     begin
-        // This should use a function like this, which does not exist:
-        //     DotNetCultureInfo.GetCultureInfoByName(languageFilter);
+        // This will be rolled out in a coming release:
+        // DotNetCultureInfo.GetCultureInfoByName(languageFilter);
 
-        // So instead we use a workaround:
+        // But for now we use a workaround:
         case LanguageCode of
             'da-dk':
                 exit(1030);

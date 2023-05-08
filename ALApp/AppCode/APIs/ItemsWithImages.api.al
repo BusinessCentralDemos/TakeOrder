@@ -59,7 +59,7 @@ page 69001 TakeOrder_ItemWithImage
                 {
                     Caption = 'Allergen Information';
                 }
-                field(itemCategoryName; ItemCatagoryName)
+                field(itemCategoryName; ItemCategoryName)
                 {
                     Editable = false;
                     Caption = 'Item Category Name';
@@ -87,7 +87,7 @@ page 69001 TakeOrder_ItemWithImage
     }
 
     var
-        ItemCatagoryName: Text[100];
+        ItemCategoryName: Text[100];
         pictureBlobPlaceholder: Record "Name/Value Buffer" temporary; // The temporary record is used to load the picture
         PictureHeight: Integer;
         PictureWidth: Integer;
@@ -127,38 +127,38 @@ page 69001 TakeOrder_ItemWithImage
 
         pictureBlobPlaceholder.Insert();
 
-        ItemCatagoryName := '';
+        ItemCategoryName := '';
         if Rec."Item Category Code" <> '' then begin
             if ItemCategory.Get(Rec."Item Category Code")
             then
-                ItemCatagoryName := ItemCategory.Description
+                ItemCategoryName := ItemCategory.Description
         end;
     end;
 
     [ServiceEnabled]
-    procedure UpdateInventoryForLocation(locationCode: Code[10]; newInventoryValue: Decimal)
+    procedure UpdateInventoryForLocation(LocationCode: Code[10]; NewInventoryValue: Decimal)
     var
         ItemJournalLine: Record "Item Journal Line";
         ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
     begin
-        Rec.SetRange("Location Filter", locationCode);
+        Rec.SetRange("Location Filter", LocationCode);
         Rec.calcfields(Inventory);
-        if Rec.Inventory = newInventoryValue then
+        if Rec.Inventory = NewInventoryValue then
             exit;
 
         ItemJournalLine.Init();
         ItemJournalLine.Validate("Posting Date", Today());
         ItemJournalLine."Document No." := Rec."No.";
-        ItemJournalLine."Location Code" := locationCode;
+        ItemJournalLine."Location Code" := LocationCode;
 
-        if Rec.Inventory < newInventoryValue then
+        if Rec.Inventory < NewInventoryValue then
             ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Positive Adjmt.")
         else
             ItemJournalLine.Validate("Entry Type", ItemJournalLine."Entry Type"::"Negative Adjmt.");
 
         ItemJournalLine.Validate("Item No.", Rec."No.");
         ItemJournalLine.Validate(Description, Rec.Description);
-        ItemJournalLine.Validate(Quantity, Abs(newInventoryValue - Rec.Inventory));
+        ItemJournalLine.Validate(Quantity, Abs(NewInventoryValue - Rec.Inventory));
 
         ItemJnlPostLine.RunWithCheck(ItemJournalLine);
         Rec.Get(Rec."No.");
