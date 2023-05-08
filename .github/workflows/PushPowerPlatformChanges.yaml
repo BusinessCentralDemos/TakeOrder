@@ -103,7 +103,7 @@ jobs:
           companyId: ${{ env.companyId }}
       
       - name: Export and push changes to Power Platform
-        uses: BusinessCentralDemos/AL-Go-Actions/DeployPowerPlatform@main
+        uses: BusinessCentralDemos/AL-Go-Actions/DeployPowerPlatform@powerplatform
         with:
           shell: powershell
           parentTelemetryScopeJson: ${{ needs.Initialization.outputs.telemetryScopeJson }}
