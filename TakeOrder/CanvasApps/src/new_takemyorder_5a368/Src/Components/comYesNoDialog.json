@@ -80,7 +80,7 @@
         "Name": "recBackgroundOverlay",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 162,
+        "PublishOrderIndex": 161,
         "Rules": [
           {
             "Category": "Design",
@@ -350,7 +350,7 @@
             "Name": "btnBackground",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 164,
+            "PublishOrderIndex": 163,
             "Rules": [
               {
                 "Category": "Data",
@@ -698,7 +698,7 @@
             "Name": "lblDialogMessage",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 165,
+            "PublishOrderIndex": 164,
             "Rules": [
               {
                 "Category": "Data",
@@ -1135,7 +1135,7 @@
                 "Name": "btnNo",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 167,
+                "PublishOrderIndex": 166,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1550,7 +1550,7 @@
                 "Name": "btnYes",
                 "Parent": "conButtons",
                 "PersistMetaDataIDKey": false,
-                "PublishOrderIndex": 168,
+                "PublishOrderIndex": 167,
                 "Rules": [
                   {
                     "Category": "Data",
@@ -1879,7 +1879,7 @@
             "Name": "conButtons",
             "Parent": "conDialog",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 166,
+            "PublishOrderIndex": 165,
             "Rules": [
               {
                 "Category": "Design",
@@ -2107,7 +2107,7 @@
         "Name": "conDialog",
         "Parent": "comYesNoDialog",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 163,
+        "PublishOrderIndex": 162,
         "Rules": [
           {
             "Category": "Design",

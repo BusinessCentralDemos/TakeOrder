@@ -112,7 +112,7 @@
         "Name": "HTMLDivider",
         "Parent": "comBigDivider",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 160,
+        "PublishOrderIndex": 159,
         "Rules": [
           {
             "Category": "Data",
