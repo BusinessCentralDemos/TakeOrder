@@ -7,15 +7,20 @@
       "RevisionNumber": 3
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "displayName": "Text Value",
-      "labelId": "Label Id",
-      "languageCode": "Language Code"
+      "address": "address",
+      "DisplayName": "DisplayName",
+      "id": "id",
+      "IsTable": "IsTable",
+      "itemImageText": "itemImageText",
+      "mail": "mail",
+      "number": "number",
+      "phone": "phone"
     },
-    "DatasetName": "SANDBOX,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f",
+    "DatasetName": "POWERAPPS,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "takeOrderLanguageResources (microsoft/powerApps/beta)",
+    "Name": "tables (microsoft/powerApps/beta)",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

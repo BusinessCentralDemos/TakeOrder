@@ -168,7 +168,7 @@
                 PaddingLeft: =0
                 PaddingRight: =0
                 Size: =22
-                Text: =ThisItem.DisplayName
+                Text: =ThisItem.'Display Name'
                 VerticalAlign: =VerticalAlign.Top
                 Width: =371
                 X: =124
@@ -187,7 +187,7 @@
                 PaddingTop: =0
                 Size: =21
                 Text: |
-                    =Text(ThisItem.'Unit price', varCurrencyFormat, varBcLocale)
+                    =Text(ThisItem.'Unit Price', varCurrencyFormat, varBcLocale)
                 VerticalAlign: =VerticalAlign.Top
                 Width: =300
                 X: =124
@@ -236,7 +236,7 @@
                             colSelectedItems,
                             {
                                 id: ThisItem.id,
-                                name: ThisItem.displayName,
+                                name: ThisItem.DisplayName,
                                 price: ThisItem.unitPrice,
                                 group: ThisItem.itemCategoryName,
                                 quantity: 1,
@@ -650,10 +650,10 @@
         OnSelect: |-
             =UpdateContext({ctxItemShowingQuantityControl: Blank()});
             Navigate('Order Summary Screen', ScreenTransition.Cover, {ctxCallingPage: 'Select Items Screen'});
-        RadiusBottomLeft: =30
-        RadiusBottomRight: =30
-        RadiusTopLeft: =30
-        RadiusTopRight: =30
+        RadiusBottomLeft: =35
+        RadiusBottomRight: =35
+        RadiusTopLeft: =35
+        RadiusTopRight: =35
         Size: =20
         Text: =varLabels.TakeOrderScreen_Review
         Visible: =varAddItemsToCurrentOrder
