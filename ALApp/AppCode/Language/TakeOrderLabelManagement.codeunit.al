@@ -1,4 +1,4 @@
-codeunit 69002 TakeOrder_LabelManagement
+codeunit 70012 "TO - LabelManagement"
 {
     // Codeunit for generating the static values that the Take Order app use for titles or other
     // text labels. This approach lets reports get values translated for the user's locale rather than hardcoding English.
@@ -139,7 +139,7 @@ codeunit 69002 TakeOrder_LabelManagement
         SummaryScreen_OrderUpdatedMessage: Label 'SummaryScreen_OrderUpdatedMessage', Locked = true;
         SummaryScreen_OrderUpdatedMessage_ValueTxt: Label 'Order updated for ';
 
-    procedure GetLabelsForLanguage(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; LanguageFilter: Text)
+    procedure GetLabelsForLanguage(var TempPowerAppsLabels: Record "TO - Labels" temporary; LanguageFilter: Text)
     var
         PreviousLanguage: Integer;
         LanguageCodeId: Integer;
@@ -171,7 +171,7 @@ codeunit 69002 TakeOrder_LabelManagement
         end;
     end;
 
-    procedure GetReportLabels(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; var languageFilter: Text[10])
+    procedure GetReportLabels(var TempPowerAppsLabels: Record "TO - Labels" temporary; var languageFilter: Text[10])
     begin
 
         InsertLabel(TempPowerAppsLabels, LoadingMessage, LoadingMessage_ValueTxt, languageFilter);
@@ -220,7 +220,7 @@ codeunit 69002 TakeOrder_LabelManagement
         insertLabel(TempPowerAppsLabels, SummaryScreen_OrderUpdatedMessage, SummaryScreen_OrderUpdatedMessage_ValueTxt, languageFilter);
     end;
 
-    local procedure InsertLabel(var TempPowerAppsLabels: Record TakeOrder_Labels temporary; LabelName: Text[100]; LabelText: Text[250]; LabelLanguage: Text[10])
+    local procedure InsertLabel(var TempPowerAppsLabels: Record "TO - Labels" temporary; LabelName: Text[100]; LabelText: Text[250]; LabelLanguage: Text[10])
     begin
         // Inserts the given key-value pair into the temp table.
         TempPowerAppsLabels."Label ID" := LabelName;

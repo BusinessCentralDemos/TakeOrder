@@ -1,4 +1,4 @@
-page 69000 TakeOrder_SamplePage
+page 70010 "TO - SamplePage"
 {
     PageType = Card;
     ApplicationArea = All;
@@ -9,13 +9,17 @@ page 69000 TakeOrder_SamplePage
     {
         area(Content)
         {
-            part(PowerAppCustomers; TakeOrder_CustomerListPart)
+            label(Processing)
+            {
+                Caption = 'This is a sample page to generate and delete data for the Take Order PowerApp';
+            }
+            part(PowerAppCustomers; "TO - CustomerListPart")
             {
                 Editable = false;
                 Caption = 'Tables - Customers';
             }
 
-            part(PowerAppItems; TakeOrder_ItemListPart)
+            part(PowerAppItems; "TO - ItemListPart")
             {
                 Editable = false;
                 Caption = 'Restuarant - Items';
@@ -25,16 +29,26 @@ page 69000 TakeOrder_SamplePage
 
     actions
     {
+        area(Promoted)
+        {
+            actionref(PromotedGenerateTestData; GenerateTestData)
+            {
+
+            }
+            actionref(PromotedDeleteTestData; DeleteTestData)
+            {
+
+            }
+        }
         area(Processing)
         {
             action(GenerateTestData)
             {
                 ApplicationArea = All;
-                Promoted = true;
                 Caption = 'Generate sample Data';
                 trigger OnAction()
                 var
-                    sampleDataGenerator: Codeunit TakeOrder_SampleDataGenerator;
+                    sampleDataGenerator: Codeunit "TO - SampleDataGenerator";
                 begin
                     sampleDataGenerator.GenerateDemoDataForPowerApps();
                 end;
@@ -42,33 +56,13 @@ page 69000 TakeOrder_SamplePage
             action(DeleteTestData)
             {
                 ApplicationArea = All;
-                Promoted = true;
                 Caption = 'Delete sample Data';
                 trigger OnAction()
                 var
-                    sampleDataGenerator: Codeunit TakeOrder_SampleDataGenerator;
+                    sampleDataGenerator: Codeunit "TO - SampleDataGenerator";
                 begin
                     sampleDataGenerator.DeleteDemoDataForPowerApps();
                 end;
-            }
-        }
-        area(Navigation)
-        {
-            action(OpenCustomerList)
-            {
-                ApplicationArea = All;
-                Promoted = true;
-                Caption = 'Customers';
-                Image = Customer;
-                RunObject = page "Customer List";
-            }
-            action(OpenItemList)
-            {
-                ApplicationArea = All;
-                Promoted = true;
-                Caption = 'Items';
-                Image = Item;
-                RunObject = page "item list";
             }
         }
     }

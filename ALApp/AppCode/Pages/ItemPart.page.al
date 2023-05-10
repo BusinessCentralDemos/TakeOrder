@@ -1,4 +1,4 @@
-page 69005 TakeOrder_ItemListPart
+page 70015 "TO - ItemListPart"
 {
     PageType = ListPart;
     SourceTable = Item;

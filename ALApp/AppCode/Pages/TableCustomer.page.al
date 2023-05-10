@@ -1,8 +1,8 @@
-pageextension 69001 TableCustomer extends "Customer Card"
+pageextension 70011 TableCustomer extends "Customer Card"
 {
     layout
     {
-        addbefore(General)
+        addafter(General)
         {
             group("Table Information")
             {

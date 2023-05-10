@@ -1,12 +1,12 @@
-page 69003 TakeOrder_Tables
+page 70013 "TO - Tables"
 {
     PageType = API;
     Caption = 'Tables';
     EntityName = 'Table';
     EntitySetName = 'Tables';
 
-    APIPublisher = 'microsoft';
-    APIGroup = 'powerApps';
+    APIPublisher = 'businessCentralDemos';
+    APIGroup = 'TakeOrder';
     APIVersion = 'beta';
 
     SourceTable = Customer;

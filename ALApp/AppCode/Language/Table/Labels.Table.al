@@ -1,4 +1,4 @@
-table 69000 TakeOrder_Labels
+table 70010 "TO - Labels"
 {
     Caption = 'Take Order - Labels';
     DataClassification = SystemMetadata;

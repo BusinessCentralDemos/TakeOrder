@@ -1,4 +1,4 @@
-page 69002 TakeOrder_CustomerListPart
+page 70012 "TO - CustomerListPart"
 {
     PageType = ListPart;
     SourceTable = Customer;

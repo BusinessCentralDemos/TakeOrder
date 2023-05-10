@@ -1,12 +1,12 @@
-page 69007 TakeOrder_LocaleInformation
+page 70017 "TO - LocaleInformation"
 {
     PageType = API;
     Caption = 'Business Central Localization information for PowerApps';
     EntityName = 'LocaleInformation';
     EntitySetName = 'LocaleInformations';
 
-    APIPublisher = 'microsoft';
-    APIGroup = 'powerApps';
+    APIPublisher = 'businessCentralDemos';
+    APIGroup = 'TakeOrder';
     APIVersion = 'beta';
 
     SourceTable = "Company Information";

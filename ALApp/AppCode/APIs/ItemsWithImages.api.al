@@ -1,12 +1,12 @@
-page 69001 TakeOrder_ItemWithImage
+page 70011 "TO - ItemWithImage"
 {
     PageType = API;
     Caption = 'Item with image';
     EntityName = 'itemWithImage';
     EntitySetName = 'itemsWithImage';
 
-    APIPublisher = 'microsoft';
-    APIGroup = 'powerApps';
+    APIPublisher = 'businessCentralDemos';
+    APIGroup = 'TakeOrder';
     APIVersion = 'beta';
 
     SourceTable = "Item";

@@ -1,4 +1,4 @@
-codeunit 69001 TakeOrder_SampleDataGenerator
+codeunit 70011 "TO - SampleDataGenerator"
 {
     procedure DeleteDemoDataForPowerApps()
     var
@@ -23,7 +23,7 @@ codeunit 69001 TakeOrder_SampleDataGenerator
     var
         CustomerRecord: Record Customer;
         ItemRecord: Record Item;
-        ItemImages: Codeunit TakeOrder_ItemImages;
+        ItemImages: Codeunit "TO - ItemImages";
     begin
         AddCustomer('Table 1');
         AddCustomer('Table 2');
@@ -69,6 +69,8 @@ codeunit 69001 TakeOrder_SampleDataGenerator
         AddItemUnitOfMeasure('P0004');
         AddItemUnitOfMeasure('P0005');
         AddItemUnitOfMeasure('P0006');
+
+        Message('Demo data generated');
     end;
 
     procedure AddItem(ItemNumber: Text; ItemName: Text; itemCategory: Text; allergenInformation: Text; LongDescription: Text; UnitPrice: Decimal; ItemPicture: Text)

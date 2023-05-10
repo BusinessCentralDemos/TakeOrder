@@ -1,8 +1,8 @@
-pageextension 69002 RestaurantItem extends "Item Card"
+pageextension 70012 "TO - RestaurantItem" extends "Item Card"
 {
     layout
     {
-        addbefore(Item)
+        addafter(Item)
         {
             group("Restaurant Information")
             {

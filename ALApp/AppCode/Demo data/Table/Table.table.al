@@ -1,8 +1,8 @@
-tableextension 69000 TakeOrder_Table extends Customer
+tableextension 70010 "TO - Table" extends Customer
 {
     fields
     {
-        field(69000; IsTable; Boolean)
+        field(70010; IsTable; Boolean)
         {
             Caption = 'Is Table';
             DataClassification = CustomerContent;

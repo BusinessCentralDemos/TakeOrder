@@ -1,16 +1,16 @@
-page 69004 TakeOrder_LanguageResources
+page 70014 "TO - LanguageResources"
 {
     PageType = API;
     Caption = 'Take Order Language Resources';
     EntityName = 'LanguageResource';
     EntitySetName = 'LanguageResources';
-    APIPublisher = 'microsoft';
-    APIGroup = 'powerApps';
+    APIPublisher = 'businessCentralDemos';
+    APIGroup = 'TakeOrder';
     APIVersion = 'beta';
 
     InsertAllowed = false;
     ModifyAllowed = false;
-    SourceTable = TakeOrder_Labels;
+    SourceTable = "TO - Labels";
     SourceTableTemporary = true;
     Extensible = false;
     ODataKeyFields = "Label ID";
@@ -43,7 +43,7 @@ page 69004 TakeOrder_LanguageResources
 
     trigger OnOpenPage()
     var
-        LabelManagement: Codeunit TakeOrder_LabelManagement;
+        LabelManagement: Codeunit "TO - LabelManagement";
         LanguageFilter: Text;
     begin
         LanguageFilter := Rec.GetFilter("Language Code");
