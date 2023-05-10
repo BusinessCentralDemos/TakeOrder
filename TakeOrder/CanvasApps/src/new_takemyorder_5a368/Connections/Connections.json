@@ -13,7 +13,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "dabe15a0-4844-4050-8a68-16e060753c39"
+          "value": "1fcdc507-7183-432b-9048-4be6f0ad963b"
         }
       },
       "parameterHintsV2": {
@@ -24,7 +24,7 @@
           "value": "8b94a6d9-a3c1-ed11-83ff-000d3a991110"
         },
         "workflowName": {
-          "value": "dabe15a0-4844-4050-8a68-16e060753c39"
+          "value": "1fcdc507-7183-432b-9048-4be6f0ad963b"
         }
       }
     },
@@ -50,14 +50,14 @@
     "datasets": {
       "PowerApps,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f": {
         "dataSources": {
-          "itemsWithImage (microsoft/powerApps/beta)": {
-            "tableName": "itemsWithImage,microsoft%252FpowerApps%252Fbeta"
+          "itemsWithImage (businessCentralDemos/TakeOrder/beta)": {
+            "tableName": "itemsWithImage,businessCentralDemos%252FTakeOrder%252Fbeta"
           },
-          "languageResources (microsoft/powerApps/beta)": {
-            "tableName": "languageResources,microsoft%252FpowerApps%252Fbeta"
+          "languageResources (businessCentralDemos/TakeOrder/beta)": {
+            "tableName": "languageResources,businessCentralDemos%252FTakeOrder%252Fbeta"
           },
-          "localeInformations (microsoft/powerApps/beta)": {
-            "tableName": "localeInformations,microsoft%252FpowerApps%252Fbeta"
+          "localeInformations (businessCentralDemos/TakeOrder/beta)": {
+            "tableName": "localeInformations,businessCentralDemos%252FTakeOrder%252Fbeta"
           },
           "salesOrderLines (v2.0)": {
             "tableName": "salesOrderLines,v2.0"
@@ -65,19 +65,19 @@
           "salesOrders (v2.0)": {
             "tableName": "salesOrders,v2.0"
           },
-          "tables (microsoft/powerApps/beta)": {
-            "tableName": "tables,microsoft%252FpowerApps%252Fbeta"
+          "tables (businessCentralDemos/TakeOrder/beta)": {
+            "tableName": "tables,businessCentralDemos%252FTakeOrder%252Fbeta"
           }
         }
       }
     },
     "dataSources": [
-      "itemsWithImage (microsoft/powerApps/beta)",
       "salesOrders (v2.0)",
       "salesOrderLines (v2.0)",
-      "tables (microsoft/powerApps/beta)",
-      "languageResources (microsoft/powerApps/beta)",
-      "localeInformations (microsoft/powerApps/beta)"
+      "itemsWithImage (businessCentralDemos/TakeOrder/beta)",
+      "languageResources (businessCentralDemos/TakeOrder/beta)",
+      "localeInformations (businessCentralDemos/TakeOrder/beta)",
+      "tables (businessCentralDemos/TakeOrder/beta)"
     ],
     "dependencies": {},
     "dependents": [

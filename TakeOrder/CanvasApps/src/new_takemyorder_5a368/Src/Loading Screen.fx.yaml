@@ -135,7 +135,7 @@
         OnSelect: |-
             =// Get localized labels from Bc
             // Note: AL logic to parse language parameter fails
-            Set(varLanguageResources, Filter('languageResources (microsoft/powerApps/beta)', languageCode = "en-us"));
+            Set(varLanguageResources, Filter('languageResources (businessCentralDemos/TakeOrder/beta)', languageCode = "en-us"));
             Set(varLabels, {
                 Subtract: LookUp(varLanguageResources, labelId = "Subtract").DisplayName,
                 LoadingMessage: LookUp(varLanguageResources, labelId = "LoadingMessage").DisplayName,
@@ -187,9 +187,9 @@
             ClearCollect(colItemGroup, varLabels.TakeOrderScreen_FullMenu);
             Concurrent(
                 Set(varUserName,User().FullName),
-                Set(varBcCompany,First('localeInformations (microsoft/powerApps/beta)')),
-                Set(varTables, Filter('tables (microsoft/powerApps/beta)', IsTable)),
-                Collect(colItemGroup, Distinct(Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'), itemCategoryName))
+                Set(varBcCompany,First('localeInformations (businessCentralDemos/TakeOrder/beta)')),
+                Set(varTables, Filter('tables (businessCentralDemos/TakeOrder/beta)', IsTable)),
+                Collect(colItemGroup, Distinct(Filter('itemsWithImage (businessCentralDemos/TakeOrder/beta)', 'Sold In Restaurant'), itemCategoryName))
             );
             
             Set(varCompanyName,varBcCompany.DisplayName);

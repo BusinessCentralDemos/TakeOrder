@@ -20,7 +20,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "tables (microsoft/powerApps/beta)",
+    "Name": "tables (businessCentralDemos/TakeOrder/beta)",
     "Type": "ConnectedDataSourceInfo"
   }
 ]
