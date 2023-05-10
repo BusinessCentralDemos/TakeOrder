@@ -7,7 +7,7 @@
   },
   "Properties": {
     "AppCreationSource": "AppFromScratch",
-    "AppDescription": "Business Central sample Canvas app that showcase what a frontline worker app can look like",
+    "AppDescription": "Take Order is a simple sample app that shows how to build a high fidelity canvas Power App using Business Central data",
     "AppPreviewFlagsMap": {
       "aibuilderserviceenrollment": false,
       "allowmultiplescreensincanvaspages": false,

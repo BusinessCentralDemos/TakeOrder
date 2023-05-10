@@ -23,11 +23,11 @@
       "SoldInRestaurant": "Sold In Restaurant",
       "unitPrice": "Unit Price"
     },
-    "DatasetName": "PowerApps,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f",
+    "DatasetName": "POWERAPPS,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "itemsWithImage (microsoft/powerApps/beta)",
+    "Name": "itemsWithImage (businessCentralDemos/TakeOrder/beta)",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

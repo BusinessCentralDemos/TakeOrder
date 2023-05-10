@@ -7,15 +7,16 @@
       "RevisionNumber": 3
     },
     "ConnectedDataSourceInfoNameMapping": {
+      "countryRegionCode": "countryRegionCode",
       "DisplayName": "DisplayName",
-      "labelId": "labelId",
-      "languageCode": "languageCode"
+      "id": "id",
+      "powerAppLocale": "powerAppLocale"
     },
     "DatasetName": "POWERAPPS,dc50d5e8-f9c9-ed11-94cc-000d3a220b2f",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "languageResources (microsoft/powerApps/beta)",
+    "Name": "localeInformations (businessCentralDemos/TakeOrder/beta)",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

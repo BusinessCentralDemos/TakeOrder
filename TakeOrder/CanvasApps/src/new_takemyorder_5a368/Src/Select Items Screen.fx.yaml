@@ -2,7 +2,7 @@
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
     OnVisible: |-
         =UpdateContext({ctxItemShowingQuantityControl: Blank()});
-        ClearCollect(colAvailableItems, Filter('itemsWithImage (microsoft/powerApps/beta)', 'Sold In Restaurant'));
+        ClearCollect(colAvailableItems, Filter('itemsWithImage (businessCentralDemos/TakeOrder/beta)', 'Sold In Restaurant'));
         
         // Select first entry - unless a value is already selected
         If(IsBlank(varSelectedItemGroup), 

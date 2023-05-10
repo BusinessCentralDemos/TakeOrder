@@ -2,7 +2,7 @@
     LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
     OnVisible: |-
         =UpdateContext({ctxItemDetails: Blank()});
-        UpdateContext({ctxItemDetails: LookUp('itemsWithImage (microsoft/powerApps/beta)', id = ctxSelectedItem.id)});
+        UpdateContext({ctxItemDetails: LookUp('itemsWithImage (businessCentralDemos/TakeOrder/beta)', id = ctxSelectedItem.id)});
 
     conItemDetails As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height

@@ -891,7 +891,7 @@
                 // Find all unique Items from Sales orders
                 Clear(colUniqueItemsFromOrder);
                 ForAll(Distinct(colTempSalesOrderLines, itemId) As uniquItemId, 
-                    Collect(colUniqueItemsFromOrder, LookUp('itemsWithImage (microsoft/powerApps/beta)', id = uniquItemId.Value));
+                    Collect(colUniqueItemsFromOrder, LookUp('itemsWithImage (businessCentralDemos/TakeOrder/beta)', id = uniquItemId.Value));
                 );
             
                 // Add items to collection with sum quantity
