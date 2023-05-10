@@ -9,22 +9,16 @@ page 69000 TakeOrder_SamplePage
     {
         area(Content)
         {
-            group(Tables)
+            part(PowerAppCustomers; TakeOrder_CustomerListPart)
             {
-                Caption = 'Sample Tables';
-                part(PowerAppCustomers; TakeOrder_CustomerListPart)
-                {
-                    Caption = 'Customers';
-                }
+                Editable = false;
+                Caption = 'Tables - Customers';
             }
-            group(Items)
-            {
-                Caption = 'Menu Items';
 
-                part(PowerAppItems; TakeOrder_ItemListPart)
-                {
-                    Caption = 'Items';
-                }
+            part(PowerAppItems; TakeOrder_ItemListPart)
+            {
+                Editable = false;
+                Caption = 'Restuarant - Items';
             }
         }
     }
@@ -56,6 +50,25 @@ page 69000 TakeOrder_SamplePage
                 begin
                     sampleDataGenerator.DeleteDemoDataForPowerApps();
                 end;
+            }
+        }
+        area(Navigation)
+        {
+            action(OpenCustomerList)
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                Caption = 'Customers';
+                Image = Customer;
+                RunObject = page "Customer List";
+            }
+            action(OpenItemList)
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                Caption = 'Items';
+                Image = Item;
+                RunObject = page "item list";
             }
         }
     }
