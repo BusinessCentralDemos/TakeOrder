@@ -24,8 +24,8 @@
             Size: =24
             Text: =Sum(colSelectedItems, quantity)
             Width: =126
-            X: =24
-            Y: =57
+            X: =30
+            Y: =56
             ZIndex: =1
 
         lblSelectedItemSum As label:
@@ -37,7 +37,7 @@
             Size: =22
             Text: =varLabels.TakeOrderScreen_Items
             Width: =126
-            X: =20    
+            X: =30
             Y: =20
             ZIndex: =2
 
@@ -51,7 +51,7 @@
             Size: =24
             Text: =Text(Sum(colSelectedItems, price * quantity), varCurrencyFormat, varBcLocale)
             Width: =196
-            X: =413
+            X: =lblSelectedTotal.X - Self.Width + lblSelectedTotal.Width
             Y: =57
             ZIndex: =3
 
@@ -65,7 +65,7 @@
             Size: =22
             Text: =varLabels.TakeOrderScreen_Totals
             Width: =130
-            X: =Parent.Width - 160
+            X: =Parent.Width - 170
             Y: =20
             ZIndex: =4
 
@@ -93,7 +93,8 @@
             ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =140
-            Width: =Parent.Width
+            Width: =Parent.Width - 40
+            X: =20
             ZIndex: =1
 
             figItemSeparator As rectangle:
@@ -146,7 +147,7 @@
                 Width: =80
                 X: =30  
                 Y: =30
-                ZIndex: =4
+                ZIndex: =3
 
             recItemImageOverlay As rectangle:
                 BorderColor: =RGBA(32, 54, 71, 1)
@@ -156,6 +157,25 @@
                 Width: =imgItemImage.Width
                 X: =imgItemImage.X
                 Y: =imgItemImage.Y
+                ZIndex: =4
+
+            lblItemPrice As label:
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =varTheme.font
+                Height: =35
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =23
+                Text: |
+                    =Text(ThisItem.'Unit Price', varCurrencyFormat, varBcLocale)
+                VerticalAlign: =VerticalAlign.Top
+                Width: =300
+                X: =lblItemDisplayName.X
+                Y: =imgItemImage.Y + imgItemImage.Height - Self.Height
                 ZIndex: =5
 
             lblItemDisplayName As label:
@@ -171,28 +191,9 @@
                 Text: =ThisItem.'Display Name'
                 VerticalAlign: =VerticalAlign.Top
                 Width: =371
-                X: =124
+                X: =135
                 Y: =imgItemImage.Y
                 ZIndex: =6
-
-            lblItemPrice As label:
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =varTheme.font
-                Height: =35
-                OnSelect: =Select(Parent)
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Size: =21
-                Text: |
-                    =Text(ThisItem.'Unit Price', varCurrencyFormat, varBcLocale)
-                VerticalAlign: =VerticalAlign.Top
-                Width: =300
-                X: =124
-                Y: =imgItemImage.Y + imgItemImage.Height - Self.Height
-                ZIndex: =7
 
             figItemOverlay As rectangle:
                 AccessibleLabel: =Self.Tooltip
@@ -214,7 +215,7 @@
                 TabIndex: =0
                 Tooltip: =varLabels.DismissQuantityControl
                 Width: =Parent.TemplateWidth
-                ZIndex: =8
+                ZIndex: =7
 
             imgAddItem As image:
                 AccessibleLabel: =Self.Tooltip
@@ -266,7 +267,7 @@
                 Visible: =Not(btnQuantity.Visible)
                 X: =Parent.TemplateWidth - Self.Width -10
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
-                ZIndex: =9
+                ZIndex: =8
 
             btnQuantity As button:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -304,7 +305,7 @@
                 Width: =60
                 X: =Parent.Width - (btnQuantity.Width/2) - 60
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
-                ZIndex: =10
+                ZIndex: =9
 
             conQuantityControl As groupContainer.manualLayoutContainer:
                 Height: =70
@@ -316,7 +317,7 @@
                 Width: =275
                 X: =Parent.Width - 280
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
-                ZIndex: =11
+                ZIndex: =10
 
                 btnQCBackground As button:
                     BorderColor: =Color.White
@@ -545,7 +546,7 @@
                 PressedBorderColor: =Color.Transparent
                 PressedColor: =Color.Black
                 PressedFill: =Color.Transparent
-                Size: =16
+                Size: =18
                 Text: =ThisItem.Value
                 Width: =152
                 ZIndex: =2
@@ -553,15 +554,15 @@
         lblSelectItemsHeader As label:
             Align: =Align.Center
             BorderColor: =RGBA(32, 54, 71, 1)
-            Color: =varTheme.primaryColor
+            Color: =varTheme.textColor
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =varTheme.font
             Height: =65
             OnSelect: =
-            Size: =30
+            Size: =28
             Text: =varSelectedTable.displayName
             Width: =Parent.Width
-            Y: =25
+            Y: =15
             ZIndex: =2
 
         imgCancelSelection As image:
@@ -596,15 +597,15 @@
                         Navigate('Select table screen', ScreenTransition.UnCoverRight)
                     )    
                 );
-            PaddingBottom: =30
-            PaddingLeft: =30
-            PaddingRight: =30
-            PaddingTop: =30
+            PaddingBottom: =25
+            PaddingLeft: =25
+            PaddingRight: =25
+            PaddingTop: =25
             PressedBorderColor: =Color.Transparent
             TabIndex: =0
             Tooltip: =If(Sum(colSelectedItems, quantity) > 0, varLabels.TakeOrderScreen_Delete, varLabels.TakeOrderScreen_Close)
             Transparency: =If(Self.DisplayMode = DisplayMode.Disabled, 60%, 0)
-            X: =Parent.Width - Self.Width
+            X: =Parent.Width - Self.Width - 20
             ZIndex: =4
 
     btnReviewSelectedItems As button:

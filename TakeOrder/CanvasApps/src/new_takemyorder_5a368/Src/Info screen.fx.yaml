@@ -5,10 +5,9 @@
     conInfoContent As groupContainer.verticalAutoLayoutContainer:
         Height: =500
         LayoutDirection: =LayoutDirection.Vertical
-        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
-        PaddingLeft: =40
-        Width: =Parent.Width * 0.9
+        Width: =Parent.Width * 0.8  
         X: =Parent.Width/2 - Self.Width/2
         Y: =Parent.Height/4 
         ZIndex: =1
@@ -34,7 +33,7 @@
                 Size: =21
                 Text: =varLabels.InfoScreen_Title
                 Width: =250
-                X: =70
+                X: =imgInfoIcon.Width + 30
                 ZIndex: =1
 
             imgInfoIcon As image:
@@ -54,9 +53,10 @@
             Height: =180
             LayoutMinHeight: =70
             LayoutMinWidth: =560
+            LineHeight: =1.4
             Size: =21
             Text: =varLabels.InfoScreen_Text
-            Width: =474
+            Width: =Parent.Width
             X: =Parent.Width/2 - Self.Width/2
             Y: =conInfoTitle.Y + conInfoTitle.Height
             ZIndex: =2
@@ -70,6 +70,7 @@
             Italic: =true
             LayoutMinHeight: =70
             LayoutMinWidth: =560
+            LineHeight: =1.4
             Size: =21
             Text: =varLabels.InfoScreen_ReadMore
             Width: =474
@@ -113,6 +114,6 @@
         PaddingTop: =20
         TabIndex: =0
         Tooltip: =varLabels.InfoScreen_Close
-        X: =Parent.Width -Self.Width
+        X: =Parent.Width - Self.Width - 20
         ZIndex: =2
 

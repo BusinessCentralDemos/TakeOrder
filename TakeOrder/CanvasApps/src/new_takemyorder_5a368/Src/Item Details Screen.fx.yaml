@@ -26,15 +26,15 @@
             lblItemDetailsHeader As label:
                 Align: =Align.Center
                 BorderColor: =RGBA(32, 54, 71, 1)
-                Color: =varTheme.primaryColor
+                Color: =varTheme.textColor
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 Height: =65
                 OnSelect: =
-                Size: =34
-                Text: ="Item Details"
+                Size: =28
+                Text: ="Item details"
                 Width: =Parent.Width
-                Y: =15
+                Y: =20
                 ZIndex: =2
 
             imgCloseItemScreen As image:
@@ -43,7 +43,7 @@
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 FocusedBorderThickness: =0
-                Image: ='back arrow'
+                Image: ='dismiss icon'
                 OnSelect: |-
                     =UpdateContext({ctxShowItemQuantityControl: false});
                     
@@ -58,6 +58,8 @@
                 PaddingTop: =30
                 TabIndex: =0
                 Tooltip: =varLabels.InfoScreen_Close
+                X: =Parent.Width - Self.Width 
+                Y: =5
                 ZIndex: =4
 
         conItemMainInfo As groupContainer.manualLayoutContainer:
@@ -364,7 +366,7 @@
         conItemImage As groupContainer.manualLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
-            Height: =420
+            Height: =400
             LayoutMinHeight: =112
             LayoutMinWidth: =250
             Width: =Parent.Width
@@ -401,7 +403,7 @@
                 Image: =ctxItemDetails.Picture
                 Width: =320
                 X: =40
-                Y: =40
+                Y: =30
                 ZIndex: =2
 
             recImageOverlay As rectangle:

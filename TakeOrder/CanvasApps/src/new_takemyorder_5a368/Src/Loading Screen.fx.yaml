@@ -4,14 +4,14 @@
     OnVisible: =
 
     conPlaceholder As groupContainer.verticalAutoLayoutContainer:
-        Height: =Parent.Height -imgLearnMorePlaceholder.Height - 60 
+        Height: =Parent.Height -imgLearnMorePlaceholder.Height - 90 
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
-        Y: =imgLearnMorePlaceholder.Height
+        Y: =140
         ZIndex: =1
 
         imgLogoPlaceholder As image:
@@ -59,7 +59,7 @@
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
-                Height: =50
+                Height: =45
                 Size: =22
                 Text: =
                 Width: =Parent.Width
@@ -72,7 +72,6 @@
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
-                Height: =50
                 Size: =20  
                 Text: =varLabels.StartScreen_User
                 Width: =Parent.Width

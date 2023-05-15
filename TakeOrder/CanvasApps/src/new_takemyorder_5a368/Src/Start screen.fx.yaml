@@ -4,14 +4,14 @@
     OnVisible: =
 
     conStartScreenContent As groupContainer.verticalAutoLayoutContainer:
-        Height: =Parent.Height -imgLearnMore.Height - 60 
+        Height: =Parent.Height -imgLearnMore.Height - 90 
         LayoutAlignItems: =LayoutAlignItems.Center
         LayoutDirection: =LayoutDirection.Vertical
         LayoutGap: =10
         LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
         LayoutMode: =LayoutMode.Auto
         Width: =Parent.Width
-        Y: =imgLearnMore.Height
+        Y: =140
         ZIndex: =7
 
         imgLogo As image:
@@ -54,7 +54,7 @@
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
-                Height: =50
+                Height: =45
                 Size: =22
                 Text: =varUserName
                 Width: =Parent.Width
@@ -67,7 +67,6 @@
                 Color: =RGBA(255, 255, 255, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
-                Height: =50
                 Size: =20  
                 Text: =varLabels.StartScreen_User
                 Width: =Parent.Width
@@ -123,6 +122,6 @@
         PaddingTop: =20
         TabIndex: =0
         Tooltip: =varLabels.StartScreen_InfoScreen
-        X: =Parent.Width - Self.Width
+        X: =Parent.Width - Self.Width - 20
         ZIndex: =8
 

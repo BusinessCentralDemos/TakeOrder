@@ -34,60 +34,11 @@
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 Height: =Parent.Height
-                Size: =30
+                Size: =28
                 Text: =varLabels.SelectTableScreen_Title
                 Width: =Parent.Width
                 X: =Parent.Width/2 - Self.Width/2
                 ZIndex: =1
-
-            icnReloadTableData As icon.Add:
-                AccessibleLabel: =Self.Tooltip
-                BorderColor: =RGBA(32, 54, 71, 1)
-                Color: =RGBA(32, 54, 71, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =ColorFade(varTheme.primaryColor, 50%)
-                Height: =100
-                Icon: =Icon.Reload
-                OnSelect: |
-                    =UpdateContext({ctxShowLoading: true});
-                    
-                    // Ensure sales orders inlcude latest changes
-                    Refresh('salesOrders (v2.0)');
-                    
-                    // Cache sales orders to avoid calling connector in ForAll and only load needed columns
-                    UpdateContext({ctxCachedSalesOrders: ShowColumns('salesOrders (v2.0)', "customerId", "number")});
-                    
-                    // Load into temp table to avoid having the gallery empty while re-populating
-                    Clear(colTempTableStatus);
-                    ForAll(varTables As table, 
-                        With({
-                            salesOrderForTable: LookUp(ctxCachedSalesOrders, customerId = table.id)
-                        },
-                            Collect(colTempTableStatus, {
-                                id: table.id,
-                                displayName: table.DisplayName,
-                                free: IsBlank(salesOrderForTable),
-                                orderNumber: salesOrderForTable.number,
-                                customerId: salesOrderForTable.customerId    
-                            })
-                        );
-                    ); 
-                    
-                    ClearCollect(colTableStatus, colTempTableStatus);
-                    
-                    // Clear temporary variables
-                    Clear(colTempTableStatus);
-                    UpdateContext({ctxShowLoading: false, ctxCachedSalesOrders: Blank()});
-                PaddingBottom: =30
-                PaddingLeft: =30
-                PaddingRight: =30
-                PaddingTop: =30
-                TabIndex: =0
-                Tooltip: =varLabels.SelectTableScreen_Update
-                Visible: =false
-                Width: =100
-                X: =Parent.Width - Self.Width
-                ZIndex: =2
 
         comDividerSelectTable As comBigDivider:
             Height: =16
@@ -98,13 +49,14 @@
 
         "galTables As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
             AccessibleLabel: =varLabels.SelectTableScreen_GalleryToolTip
+            AlignInContainer: =AlignInContainer.SetByContainer
             BorderColor: =RGBA(32, 54, 71, 1)
             FocusedBorderThickness: =0
             Height: =979
             Items: =colTableStatus
             Layout: =Layout.Vertical
             LayoutMinHeight: =287
-            LayoutMinWidth: =320
+            LayoutMinWidth: =Parent.Width - 40
             LoadingSpinner: =LoadingSpinner.Controls
             OnSelect: |+
                 =Clear(colSelectedItems);
@@ -121,7 +73,8 @@
             ShowScrollbar: =false
             TabIndex: =0
             TemplatePadding: =0
-            TemplateSize: =120
+            TemplateSize: =140
+            Transition: =Transition.Push
             Y: =
             ZIndex: =4
 
@@ -130,9 +83,9 @@
                 Fill: =ColorFade(varTheme.primaryColor, 50%)
                 Height: =2
                 OnSelect: =Select(Parent)
-                Width: =Parent.TemplateWidth - 40
-                X: =20
-                Y: =118
+                Width: =Parent.TemplateWidth - 60
+                X: =30
+                Y: =Parent.TemplateHeight - 2
                 ZIndex: =1
 
             lblTableStatus As label:
@@ -142,11 +95,11 @@
                 Font: =varTheme.font
                 Height: =lblTableName.Height
                 OnSelect: =Select(Parent)
-                Size: =21
+                Size: =22
                 Text: =If(ThisItem.free, varLabels.SelectTableScreen_Free, varLabels.SelectTableScreen_Occupied)
                 Width: =lblTableName.Width
                 X: =lblTableName.X
-                Y: =lblTableName.Height
+                Y: =lblTableName.Height + lblTableName.Y
                 ZIndex: =2
 
             lblTableName As label:
@@ -155,22 +108,21 @@
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 Font: =varTheme.font
                 FontWeight: =FontWeight.Semibold
-                Height: =50
                 OnSelect: =Select(Parent)
-                Size: =21
+                Size: =24
                 Text: =ThisItem.displayName
                 Width: =Parent.TemplateWidth - 160
                 X: =120
-                Y: =10
+                Y: =30
                 ZIndex: =3
 
             figStatusCircle As circle:
                 BorderColor: =RGBA(32, 54, 71, 1)
                 Fill: =If(ThisItem.free, RGBA(223, 218, 204, 1), varTheme.primaryColor)
-                Height: =60
+                Height: =70
                 OnSelect: =Select(Parent)
-                Width: =60
-                X: =30 
+                Width: =Self.Height
+                X: =40
                 Y: =Parent.TemplateHeight/2 - Self.Height/2
                 ZIndex: =4
 
@@ -225,4 +177,54 @@
             X: =App.Width/2 - Self.Width/2
             Y: =App.Height/2 - Self.Height/2 - Parent.Y
             ZIndex: =1
+
+    icnReloadTableData As icon.Add:
+        AccessibleLabel: =Self.Tooltip
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =ColorFade(varTheme.primaryColor, 50%)
+        Height: =100
+        Icon: =Icon.Reload
+        OnSelect: |
+            =UpdateContext({ctxShowLoading: true});
+            
+            // Ensure sales orders inlcude latest changes
+            Refresh('salesOrders (v2.0)');
+            
+            // Cache sales orders to avoid calling connector in ForAll and only load needed columns
+            UpdateContext({ctxCachedSalesOrders: ShowColumns('salesOrders (v2.0)', "customerId", "number")});
+            
+            // Load into temp table to avoid having the gallery empty while re-populating
+            Clear(colTempTableStatus);
+            ForAll(varTables As table, 
+                With({
+                    salesOrderForTable: LookUp(ctxCachedSalesOrders, customerId = table.id)
+                },
+                    Collect(colTempTableStatus, {
+                        id: table.id,
+                        displayName: table.DisplayName,
+                        free: IsBlank(salesOrderForTable),
+                        orderNumber: salesOrderForTable.number,
+                        customerId: salesOrderForTable.customerId    
+                    })
+                );
+            ); 
+            
+            // Use the temp storage and do the bulk update to avoid the list flickering
+            ClearCollect(colTableStatus, colTempTableStatus);
+            
+            // Clear temporary variables
+            Clear(colTempTableStatus);
+            UpdateContext({ctxShowLoading: false, ctxCachedSalesOrders: Blank()});
+        PaddingBottom: =30
+        PaddingLeft: =30
+        PaddingRight: =30
+        PaddingTop: =30
+        TabIndex: =0
+        Tooltip: =varLabels.SelectTableScreen_Update
+        Visible: =false
+        Width: =100
+        X: =Parent.Width - Self.Width
+        ZIndex: =7
 
